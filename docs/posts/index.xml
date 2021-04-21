@@ -8,12 +8,15 @@
     <language>zh-cn</language>
     <lastBuildDate>Wed, 21 Apr 2021 14:55:05 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Rust变量</title>
+      <title>Rust常见编程概念</title>
       <link>https://murphywzhu.github.io/blog/posts/rust-01/</link>
       <pubDate>Wed, 21 Apr 2021 14:55:05 +0800</pubDate>
       
       <guid>https://murphywzhu.github.io/blog/posts/rust-01/</guid>
-      <description></description>
+      <description>不变变量 以下程序理所当然的输出5
+fn main() { let a = 5; println!(&amp;#34;{}&amp;#34;, a); } 而当你尝试改变a的值时
+fn main() { let a = 5; a = 6; println!(&amp;#34;{}&amp;#34;, a); } 则会出现错误
+error[E0384]: cannot assign twice to immutable variable `a` --&amp;gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议</description>
     </item>
     
     <item>
