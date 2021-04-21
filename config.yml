@@ -30,8 +30,6 @@ params:
               url: "posts/"
             - name: Github
               url: "https://github.com/murphywzhu"
-    cover:
-        linkFullImages: true
 outputs:
     home:
         - HTML
