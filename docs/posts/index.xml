@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Apr 2021 14:55:05 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Apr 2021 21:45:28 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust所有权</title>
+      <link>https://murphywzhu.github.io/blog/posts/rust-02/</link>
+      <pubDate>Wed, 21 Apr 2021 21:45:28 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/rust-02/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Rust常见编程概念</title>
       <link>https://murphywzhu.github.io/blog/posts/rust-01/</link>
