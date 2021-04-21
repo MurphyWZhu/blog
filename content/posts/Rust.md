@@ -3,7 +3,7 @@ title: "Rust初试"
 date: 2021-04-21T13:58:22+08:00
 draft: false
 cover:
-    image: "https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg"
+    image: "https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg"
     alt: "Rust"
     # caption: "ArchLinux"
     relative: false # To use relative path for cover image, used in hugo Page-bundles
