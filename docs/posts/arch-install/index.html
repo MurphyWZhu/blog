@@ -5,12 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts | 锦酱的博客</title>
+<title>Arch Install | 锦酱的博客</title>
 <meta name="keywords" content="" />
-<meta name="description" content="">
+<meta name="description" content="安装前配置 设置字体
+setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
+wifi: iwctl 设置ntp
+timedatectl set-ntp true 磁盘按照自己的需要分区
+将根目录挂载到/mnt
+修改镜像站">
 <meta name="author" content="">
-<link rel="canonical" href="https://murphywzhu.github.io/blog/posts/" />
+<link rel="canonical" href="https://murphywzhu.github.io/blog/posts/arch-install/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.bc435bed1061be2618667408894ae8a5d27c970831ce57f287e42f911918fcbc.css" integrity="sha256-vENb7RBhviYYZnQIiUropdJ8lwgxzlfyh&#43;QvkRkY/Lw=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/blog/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://murphywzhu.github.io/blog/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://murphywzhu.github.io/blog/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://murphywzhu.github.io/blog/favicon-32x32.png">
@@ -19,15 +26,26 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.82.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/posts/index.xml">
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://murphywzhu.github.io/blog/posts/" />
+<meta property="og:title" content="Arch Install" />
+<meta property="og:description" content="安装前配置 设置字体
+setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
+wifi: iwctl 设置ntp
+timedatectl set-ntp true 磁盘按照自己的需要分区
+将根目录挂载到/mnt
+修改镜像站" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://murphywzhu.github.io/blog/posts/arch-install/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-21T12:49:02&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-21T12:49:02&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Arch Install"/>
+<meta name="twitter:description" content="安装前配置 设置字体
+setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
+wifi: iwctl 设置ntp
+timedatectl set-ntp true 磁盘按照自己的需要分区
+将根目录挂载到/mnt
+修改镜像站"/>
 
 
 <script type="application/ld+json">
@@ -40,13 +58,48 @@
       "position":  1 ,
       "name": "Posts",
       "item": "https://murphywzhu.github.io/blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Arch Install",
+      "item": "https://murphywzhu.github.io/blog/posts/arch-install/"
     }
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Arch Install",
+  "name": "Arch Install",
+  "description": "安装前配置 设置字体\nsetfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络\nwifi: iwctl 设置ntp\ntimedatectl set-ntp true 磁盘按照自己的需要分区\n将根目录挂载到/mnt\n修改镜像站",
+  "keywords": [
+    
+  ],
+  "articleBody": "安装前配置 设置字体\nsetfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络\nwifi: iwctl 设置ntp\ntimedatectl set-ntp true 磁盘按照自己的需要分区\n将根目录挂载到/mnt\n修改镜像站\n",
+  "wordCount" : "14",
+  "inLanguage": "zh-cn",
+  "datePublished": "2021-04-21T12:49:02+08:00",
+  "dateModified": "2021-04-21T12:49:02+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://murphywzhu.github.io/blog/posts/arch-install/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "锦酱的博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://murphywzhu.github.io/blog/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -136,37 +189,32 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>Posts</h1>
-</header>
+<main class="main">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Arch Install</h2>
-  </header>
-  <section class="entry-content">
-    <p>安装前配置 设置字体
-setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
-wifi: iwctl 设置ntp
-timedatectl set-ntp true 磁盘按照自己的需要分区
-将根目录挂载到/mnt
-修改镜像站</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Arch Install" href="https://murphywzhu.github.io/blog/posts/arch-install/"></a>
-</article>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Arch Install
+    </h1>
+    <div class="post-meta">April 21, 2021
+</div>
+  </header> 
+  <div class="post-content"><h3 id="安装前配置">安装前配置<a hidden class="anchor" aria-hidden="true" href="#安装前配置">#</a></h3>
+<p>设置字体</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz
+</code></pre></div><p>连接网络</p>
+<pre><code>wifi:
+iwctl
+</code></pre><p>设置ntp</p>
+<pre><code>timedatectl set-ntp true
+</code></pre><p>磁盘按照自己的需要分区</p>
+<p>将根目录挂载到/mnt</p>
+<p>修改镜像站</p>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Hello World</h2>
-  </header>
-  <section class="entry-content">
-    <p>这是第一篇文章
-echo &#34;Hello World!&#34; </p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Hello World" href="https://murphywzhu.github.io/blog/posts/hello-world/"></a>
+</div>
+  <footer class="post-footer">
+  </footer>
 </article>
     </main>
     <footer class="footer">
@@ -239,6 +287,53 @@ echo &#34;Hello World!&#34; </p>
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
