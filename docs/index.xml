@@ -13,7 +13,8 @@
       <pubDate>Wed, 21 Apr 2021 11:05:00 +0800</pubDate>
       
       <guid>https://murphywzhu.github.io/blog/posts/hello-world/</guid>
-      <description></description>
+      <description>这是第一篇文章
+echo &amp;quot;Hello World!&amp;quot; </description>
     </item>
     
   </channel>
