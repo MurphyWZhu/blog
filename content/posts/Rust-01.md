@@ -10,6 +10,8 @@ tags: ["Rust"]
     # relative: false # To use relative path for cover image, used in hugo Page-bundle
 ---
 
+
+
 ### 不变变量
 
 以下程序理所当然的输出`5`
@@ -197,4 +199,41 @@ fn main() {
 ```
 
 #### `while`条件循环
+
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+
+        number = number - 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+
+#### `for`循环
+
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+}
+```
+
+
+
+```rust
+fn main() {
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
+}
+```
 
