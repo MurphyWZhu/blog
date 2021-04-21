@@ -16,21 +16,16 @@ languages:
 params:
     profileMode:
         enabled: true
-        title: "<Title>" # optional default will be site title
-        subtitle: "This is subtitle"
-        imageUrl: "<image link>" # optional
-        imageTitle: "<title of image as alt>" # optional
+        title: "锦酱" # optional default will be site title
+        subtitle: "锦酱!又出Bug啦!"
+        imageUrl: "https://mublog.oss-cn-beijing.aliyuncs.com/mutx.jpeg" # optional
+        imageTitle: "图片被吃掉了哎!" # optional
         imageWidth: 120 # custom size
         imageHeight: 120 # custom size
         buttons:
-            - name: Archive
-              url: "/archive"
+            - name: 文章
+              url: "/posts"
             - name: Github
               url: "https://github.com/"
 
-    socialIcons: # optional
-        - name: "<platform>"
-          url: "<link>"
-        - name: "<platform 2>"
-          url: "<link2>"
 
