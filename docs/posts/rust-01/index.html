@@ -195,12 +195,12 @@ error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3
 </div>
   </header> 
   <div class="post-content"><h3 id="不变变量">不变变量<a hidden class="anchor" aria-hidden="true" href="#不变变量">#</a></h3>
-<p>以下程序理所当然的输出5</p>
+<p>以下程序理所当然的输出<code>5</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
     <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
     println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a);
 }
-</code></pre></div><p>而当你尝试改变a的值时</p>
+</code></pre></div><p>而当你尝试改变<code>a</code>的值时</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
     <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
     a <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
@@ -218,14 +218,14 @@ error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3
 <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>     a <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
   <span style="color:#f92672">|</span>     <span style="color:#f92672">^^^^^</span> cannot assign twice to immutable variable
 </code></pre></div><p><code>rust</code>会很人性化的提示你哪里错了，还会给出建议</p>
-<p>这就是因为rust变量默认是不可改变的，要改变的话需要声明他是可变的，就像他提示的那样</p>
+<p>这就是因为<code>rust</code>变量默认是不可改变的，要改变的话需要声明他是可变的，就像他提示的那样</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
     <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
     a <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
     println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a);
 }
 </code></pre></div><h3 id="常量">常量<a hidden class="anchor" aria-hidden="true" href="#常量">#</a></h3>
-<p>rust变量默认不可变，那好像和常量一样，常量不光默认不能变，它总是不能变。常量只能被设置为常量表达式，而不能是函数调用的结果，或任何其他只能在运行时计算出的值。</p>
+<p><code>rust</code>变量默认不可变，那好像和常量一样，常量不光默认不能变，它总是不能变。常量只能被设置为常量表达式，而不能是函数调用的结果，或任何其他只能在运行时计算出的值。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">const</span> MAX_POINTS: <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100_000</span>;
 </code></pre></div><h3 id="数据类型">数据类型<a hidden class="anchor" aria-hidden="true" href="#数据类型">#</a></h3>
 <p>声明</p>
