@@ -3,11 +3,11 @@ title: "Rust常见编程概念"
 date: 2021-04-21T14:55:05+08:00
 draft: false
 tags: ["Rust"]
-cover:
-    image: "https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg"
-    alt: "Rust"
+# cover:
+    # image: "https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg"
+    # alt: "Rust"
     # caption: "ArchLinux"
-    relative: false # To use relative path for cover image, used in hugo Page-bundle
+    # relative: false # To use relative path for cover image, used in hugo Page-bundle
 ---
 
 ### 不变变量
@@ -83,6 +83,33 @@ let x = 5.5;
 let c = 'z';
 let z = 'ℤ';
 let heart_eyed_cat = '😻';
+```
+
+元组`(tup)`
+
+```rust
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+let tup = (500, 6.4, 1);
+println!("{}", tup.0);
+```
+
+数组`(array)`
+
+数组是固定长度的，一旦声明，它们的长度不能增长或缩小。
+
+```rust
+let a = [1, 2, 3, 4, 5];
+let b: [i32; 5] = [1, 2, 3, 4, 5];
+let c = [3; 5];//[3,3,3,3,3]
+println!("{}", a[0]);
+```
+
+### 函数
+
+```rust
+fn func_name(x: i32) -> i32 {
+	x*2
+}
 ```
 
 
