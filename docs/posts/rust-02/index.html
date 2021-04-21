@@ -7,7 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>Rust所有权 | 锦酱的博客</title>
 <meta name="keywords" content="Rust" />
-<meta name="description" content="Rust所有权 - 锦酱的博客">
+<meta name="description" content="所有权 所有权是rust的核心之一
+它有如下规则
+1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = &#34;hello&#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
+let s = String::from(&#34;hello&#34;); 对于栈上的数据rust直接复制了
+let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
+如下代码会错误，因为s1无效了，所以发生了无效引用
+let s1 = String::from(&#34;hello&#34;); let s2 = s1; println!(&#34;{}, world!&#34;, s1); 如果要复制String的数据可以使用clone
+let s1 = String::from(&#34;hello&#34;); let s2 = s1.">
 <meta name="author" content="">
 <link rel="canonical" href="https://murphywzhu.github.io/blog/posts/rust-02/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.bc435bed1061be2618667408894ae8a5d27c970831ce57f287e42f911918fcbc.css" integrity="sha256-vENb7RBhviYYZnQIiUropdJ8lwgxzlfyh&#43;QvkRkY/Lw=" rel="preload stylesheet" as="style">
@@ -22,7 +29,14 @@
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.82.0" />
 <meta property="og:title" content="Rust所有权" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="所有权 所有权是rust的核心之一
+它有如下规则
+1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = &#34;hello&#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
+let s = String::from(&#34;hello&#34;); 对于栈上的数据rust直接复制了
+let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
+如下代码会错误，因为s1无效了，所以发生了无效引用
+let s1 = String::from(&#34;hello&#34;); let s2 = s1; println!(&#34;{}, world!&#34;, s1); 如果要复制String的数据可以使用clone
+let s1 = String::from(&#34;hello&#34;); let s2 = s1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://murphywzhu.github.io/blog/posts/rust-02/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-21T21:45:28&#43;08:00" />
@@ -30,7 +44,14 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rust所有权"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="所有权 所有权是rust的核心之一
+它有如下规则
+1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = &#34;hello&#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
+let s = String::from(&#34;hello&#34;); 对于栈上的数据rust直接复制了
+let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
+如下代码会错误，因为s1无效了，所以发生了无效引用
+let s1 = String::from(&#34;hello&#34;); let s2 = s1; println!(&#34;{}, world!&#34;, s1); 如果要复制String的数据可以使用clone
+let s1 = String::from(&#34;hello&#34;); let s2 = s1."/>
 
 
 <script type="application/ld+json">
@@ -59,12 +80,12 @@
   "@type": "BlogPosting",
   "headline": "Rust所有权",
   "name": "Rust所有权",
-  "description": "",
+  "description": "所有权 所有权是rust的核心之一\n它有如下规则\n1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = \u0026#34;hello\u0026#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型\nlet s = String::from(\u0026#34;hello\u0026#34;); 对于栈上的数据rust直接复制了\nlet x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了\n如下代码会错误，因为s1无效了，所以发生了无效引用\nlet s1 = String::from(\u0026#34;hello\u0026#34;); let s2 = s1; println!(\u0026#34;{}, world!\u0026#34;, s1); 如果要复制String的数据可以使用clone\nlet s1 = String::from(\u0026#34;hello\u0026#34;); let s2 = s1.",
   "keywords": [
     "Rust"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "所有权 所有权是rust的核心之一\n它有如下规则\n1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = \"hello\"; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型\nlet s = String::from(\"hello\"); 对于栈上的数据rust直接复制了\nlet x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了\n如下代码会错误，因为s1无效了，所以发生了无效引用\nlet s1 = String::from(\"hello\"); let s2 = s1; println!(\"{}, world!\", s1); 如果要复制String的数据可以使用clone\nlet s1 = String::from(\"hello\"); let s2 = s1.clone(); println!(\"s1 = {}, s2 = {}\", s1, s2); 所有权与函数 fn main() { let s = String::from(\"hello\"); // s 进入作用域  takes_ownership(s); // s 的值移动到函数里 ...  // ... 所以到这里不再有效  let x = 5; // x 进入作用域  makes_copy(x); // x 应该移动函数里，  // 但 i32 是 Copy 的，所以在后面可继续使用 x  } // 这里, x 先移出了作用域，然后是 s。但因为 s 的值已被移走，  // 所以不会有特殊操作  fn takes_ownership(some_string: String) { // some_string 进入作用域  println!(\"{}\", some_string); } // 这里，some_string 移出作用域并调用 `drop` 方法。占用的内存被释放  fn makes_copy(some_integer: i32) { // some_integer 进入作用域  println!(\"{}\", some_integer); } // 这里，some_integer 移出作用域。不会有特殊操作 fn main() { let s1 = gives_ownership(); // gives_ownership 将返回值  // 移给 s1  let s2 = String::from(\"hello\"); // s2 进入作用域  let s3 = takes_and_gives_back(s2); // s2 被移动到  // takes_and_gives_back 中,  // 它也将返回值移给 s3 } // 这里, s3 移出作用域并被丢弃。s2 也移出作用域，但已被移走，  // 所以什么也不会发生。s1 移出作用域并被丢弃  fn gives_ownership() - String { // gives_ownership 将返回值移动给  // 调用它的函数  let some_string = String::from(\"hello\"); // some_string 进入作用域.  some_string // 返回 some_string 并移出给调用的函数 } // takes_and_gives_back 将传入字符串并返回该值 fn takes_and_gives_back(a_string: String) - String { // a_string 进入作用域  a_string // 返回 a_string 并移出给调用的函数 } fn main() { let s1 = String::from(\"hello\"); let (s2, len) = calculate_length(s1); println!(\"The length of '{}' is {}.\", s2, len); } fn calculate_length(s: String) - (String, usize) { let length = s.len(); // len() 返回字符串的长度  (s, length) } ",
+  "wordCount" : "274",
   "inLanguage": "zh-cn",
   "datePublished": "2021-04-21T21:45:28+08:00",
   "dateModified": "2021-04-21T21:45:28+08:00",
@@ -185,7 +206,99 @@
     <div class="post-meta">April 21, 2021
 </div>
   </header> 
-  <div class="post-content">
+  <div class="post-content"><h3 id="所有权">所有权<a hidden class="anchor" aria-hidden="true" href="#所有权">#</a></h3>
+<p>所有权是<code>rust</code>的核心之一</p>
+<p>它有如下规则</p>
+<pre><code>1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。
+2、值在任一时刻有且只有一个所有者。
+3、当所有者（变量）离开作用域，这个值将被丢弃。
+</code></pre><h3 id="变量作用域">变量作用域<a hidden class="anchor" aria-hidden="true" href="#变量作用域">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#![allow(unused)]</span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+{                      <span style="color:#75715e">// s 在这里无效, 它尚未声明
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span>;   <span style="color:#75715e">// 从此处起，s 是有效的
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// 使用 s
+</span><span style="color:#75715e"></span>}                      <span style="color:#75715e">// 此作用域已结束，s 不再有效
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h4 id="string类型"><code>String</code>类型<a hidden class="anchor" aria-hidden="true" href="#string类型">#</a></h4>
+<p>之前的类型都是栈上的，现在需要一个堆上的类型，<code>String</code>就是我们需要的类型</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</code></pre></div><p>对于栈上的数据<code>rust</code>直接复制了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+<span style="color:#66d9ef">let</span> y <span style="color:#f92672">=</span> x;
+</code></pre></div><p>对于堆上的数据，<code>rust</code>将原来的内存给了之后的，而原来的就无效了</p>
+<p>如下代码会错误，因为<code>s1</code>无效了，所以发生了无效引用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+<span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1;
+
+println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}, world!&#34;</span>, s1);
+</code></pre></div><p>如果要复制<code>String</code>的数据可以使用<code>clone</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+<span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1.clone();
+
+println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;s1 = {}, s2 = {}&#34;</span>, s1, s2);
+</code></pre></div><h3 id="所有权与函数">所有权与函数<a hidden class="anchor" aria-hidden="true" href="#所有权与函数">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);  <span style="color:#75715e">// s 进入作用域
+</span><span style="color:#75715e"></span>
+    takes_ownership(s);             <span style="color:#75715e">// s 的值移动到函数里 ...
+</span><span style="color:#75715e"></span>                                    <span style="color:#75715e">// ... 所以到这里不再有效
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;                      <span style="color:#75715e">// x 进入作用域
+</span><span style="color:#75715e"></span>
+    makes_copy(x);                  <span style="color:#75715e">// x 应该移动函数里，
+</span><span style="color:#75715e"></span>                                    <span style="color:#75715e">// 但 i32 是 Copy 的，所以在后面可继续使用 x
+</span><span style="color:#75715e"></span>
+} <span style="color:#75715e">// 这里, x 先移出了作用域，然后是 s。但因为 s 的值已被移走，
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// 所以不会有特殊操作
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">takes_ownership</span>(some_string: String) { <span style="color:#75715e">// some_string 进入作用域
+</span><span style="color:#75715e"></span>    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, some_string);
+} <span style="color:#75715e">// 这里，some_string 移出作用域并调用 `drop` 方法。占用的内存被释放
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">makes_copy</span>(some_integer: <span style="color:#66d9ef">i32</span>) { <span style="color:#75715e">// some_integer 进入作用域
+</span><span style="color:#75715e"></span>    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, some_integer);
+} <span style="color:#75715e">// 这里，some_integer 移出作用域。不会有特殊操作
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> gives_ownership();         <span style="color:#75715e">// gives_ownership 将返回值
+</span><span style="color:#75715e"></span>                                        <span style="color:#75715e">// 移给 s1
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);     <span style="color:#75715e">// s2 进入作用域
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">let</span> s3 <span style="color:#f92672">=</span> takes_and_gives_back(s2);  <span style="color:#75715e">// s2 被移动到
+</span><span style="color:#75715e"></span>                                        <span style="color:#75715e">// takes_and_gives_back 中,
+</span><span style="color:#75715e"></span>                                        <span style="color:#75715e">// 它也将返回值移给 s3
+</span><span style="color:#75715e"></span>} <span style="color:#75715e">// 这里, s3 移出作用域并被丢弃。s2 也移出作用域，但已被移走，
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// 所以什么也不会发生。s1 移出作用域并被丢弃
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">gives_ownership</span>() -&gt; String {             <span style="color:#75715e">// gives_ownership 将返回值移动给
+</span><span style="color:#75715e"></span>                                             <span style="color:#75715e">// 调用它的函数
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">let</span> some_string <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>); <span style="color:#75715e">// some_string 进入作用域.
+</span><span style="color:#75715e"></span>
+    some_string                              <span style="color:#75715e">// 返回 some_string 并移出给调用的函数
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e">// takes_and_gives_back 将传入字符串并返回该值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">takes_and_gives_back</span>(a_string: String) -&gt; String { <span style="color:#75715e">// a_string 进入作用域
+</span><span style="color:#75715e"></span>
+    a_string  <span style="color:#75715e">// 返回 a_string 并移出给调用的函数
+</span><span style="color:#75715e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+
+    <span style="color:#66d9ef">let</span> (s2, len) <span style="color:#f92672">=</span> calculate_length(s1);
+
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;The length of &#39;{}&#39; is {}.&#34;</span>, s2, len);
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calculate_length</span>(s: String) -&gt; (String, <span style="color:#66d9ef">usize</span>) {
+    <span style="color:#66d9ef">let</span> length <span style="color:#f92672">=</span> s.len(); <span style="color:#75715e">// len() 返回字符串的长度
+</span><span style="color:#75715e"></span>
+    (s, length)
+}
+</code></pre></div>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">

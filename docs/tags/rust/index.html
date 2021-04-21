@@ -131,7 +131,14 @@
     <h2>Rust所有权</h2>
   </header>
   <section class="entry-content">
-    <p></p>
+    <p>所有权 所有权是rust的核心之一
+它有如下规则
+1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = &#34;hello&#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
+let s = String::from(&#34;hello&#34;); 对于栈上的数据rust直接复制了
+let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
+如下代码会错误，因为s1无效了，所以发生了无效引用
+let s1 = String::from(&#34;hello&#34;); let s2 = s1; println!(&#34;{}, world!&#34;, s1); 如果要复制String的数据可以使用clone
+let s1 = String::from(&#34;hello&#34;); let s2 = s1....</p>
   </section>
   <footer class="entry-footer">April 21, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust所有权" href="https://murphywzhu.github.io/blog/posts/rust-02/"></a>
