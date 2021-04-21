@@ -93,6 +93,13 @@ let tup = (500, 6.4, 1);
 println!("{}", tup.0);
 ```
 
+元组默认也是不可变的，也需要加`mut`声明可变才可改变
+
+```rust
+let mut tup = (50, 6.1, 5);
+tup.0 = 55;
+```
+
 数组`(array)`
 
 数组是固定长度的，一旦声明，它们的长度不能增长或缩小。
@@ -104,15 +111,82 @@ let c = [3; 5];//[3,3,3,3,3]
 println!("{}", a[0]);
 ```
 
+数组同样也是不可变的啦，也要加`mut`才可改变
+
+```rust
+let mut list = [5, 5, 5, 5];
+```
+
 ### 函数
+
+函数是面向过程的语言里非常重要的一个东西
+
+在`rust`里的函数的定义如下
 
 ```rust
 fn func_name(x: i32) -> i32 {
 	x*2
 }
+fn func_name(x: i32) -> i32 {
+	return x*2
+}
 ```
 
+`rust`函数的最后一条`表达式`的值当作返回值，也可以使用`return`返回
 
+`rust`里只有表达式才有值，函数调用也是表达式
 
+### 控制流
 
+`if`表达式
+
+`if`语句也是表达式所以也有值
+
+一下程序会输出`20`
+
+```rust
+fn main() {
+    let a = 10;
+    let b = if a > 10 {
+        a
+    } else {
+        a*2
+    };
+    println!("{}", b);
+}
+```
+
+`rust`的`if`语句中的条件只能是值为`bool`型的表达式
+
+`loop`循环
+
+```rust
+fn main() {
+    loop {
+        println!("again!");
+    }
+}
+```
+
+可以用`break`退出循环，`loop`表达式的值，即是`break`后面的表达式的值
+
+下面程序会输出`20`
+
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {}", result);
+}
+```
+
+`while`条件循环
 
