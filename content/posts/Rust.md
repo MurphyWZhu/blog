@@ -52,3 +52,6 @@ Hello, world!
 ### Rust IDE
 
 `rust`还没有官方的`IDE`，我使用`Clion`的`rust`插件来写
+
+![clion](https://mublog.oss-cn-beijing.aliyuncs.com/rust_clion.png)
+
