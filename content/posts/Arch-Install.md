@@ -5,7 +5,7 @@ draft: false
 cover:
     image: "https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg"
     alt: "ArchLinux"
-    caption: "ArchLinux"
+    # caption: "ArchLinux"
     relative: false # To use relative path for cover image, used in hugo Page-bundles
 ---
 
