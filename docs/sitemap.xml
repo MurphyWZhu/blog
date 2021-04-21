@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://murphywzhu.github.io/blog/posts/</loc>
-    <lastmod>2021-04-21T13:58:22+08:00</lastmod>
+    <lastmod>2021-04-21T14:55:05+08:00</lastmod>
   </url><url>
-    <loc>https://murphywzhu.github.io/blog/posts/rust/</loc>
-    <lastmod>2021-04-21T13:58:22+08:00</lastmod>
+    <loc>https://murphywzhu.github.io/blog/posts/rust-01/</loc>
+    <lastmod>2021-04-21T14:55:05+08:00</lastmod>
   </url><url>
     <loc>https://murphywzhu.github.io/blog/</loc>
+    <lastmod>2021-04-21T14:55:05+08:00</lastmod>
+  </url><url>
+    <loc>https://murphywzhu.github.io/blog/posts/rust/</loc>
     <lastmod>2021-04-21T13:58:22+08:00</lastmod>
   </url><url>
     <loc>https://murphywzhu.github.io/blog/posts/arch-install/</loc>
