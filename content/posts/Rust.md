@@ -2,6 +2,7 @@
 title: "Rust初试"
 date: 2021-04-21T13:58:22+08:00
 draft: false
+tags: ["Rust"]
 cover:
     image: "https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg"
     alt: "Rust"
