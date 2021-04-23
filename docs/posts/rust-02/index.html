@@ -84,8 +84,8 @@ let s1 = String::from(&#34;hello&#34;); let s2 = s1."/>
   "keywords": [
     "Rust"
   ],
-  "articleBody": "所有权 所有权是rust的核心之一\n它有如下规则\n1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = \"hello\"; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型\nlet s = String::from(\"hello\"); 对于栈上的数据rust直接复制了\nlet x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了\n如下代码会错误，因为s1无效了，所以发生了无效引用\nlet s1 = String::from(\"hello\"); let s2 = s1; println!(\"{}, world!\", s1); 如果要复制String的数据可以使用clone\nlet s1 = String::from(\"hello\"); let s2 = s1.clone(); println!(\"s1 = {}, s2 = {}\", s1, s2); 所有权与函数 以下程序会报错\nfn main() { let a = String::from(\"Hello\"); print_str(a); println!(\"{}\", a); } fn print_str(str : String) { println!(\"{}\", str); } 说a已经被移动了\nerror[E0382]: borrow of moved value: `a` -- src/main.rs:4:20 | 2 | let a = String::from(\"Hello\"); | - move occurs because `a` has type `String`, which does not implement the `Copy` trait 3 | print_str(a); | - value moved here 4 | println!(\"{}\", a); | ^ value borrowed here after move 这是因为啊的所有权被移动到了print_str函数里，函数结束所有权就消失了\n那应该怎么办呢，不用担心，函数返回值的时候也会返回所有权，我们只需要将原来的参数返回就行\nfn main() { let a = String::from(\"Hello\"); let b = print_str(a); println!(\"{}\", b); } fn print_str(str : String) - String{ println!(\"{}\", str); str } 也可以像下面一样，将要返回的东西和原来的参数一起返回，不过这样着实是有些麻烦，不过我们接下来的东西可以解决\nfn main() { let s1 = String::from(\"hello\"); let (s2, len) = calculate_length(s1); println!(\"The length of '{}' is {}.\", s2, len); } fn calculate_length(s: String) - (String, usize) { let length = s.len(); // len() 返回字符串的长度  (s, length) } 借用 ",
-  "wordCount" : "216",
+  "articleBody": "所有权 所有权是rust的核心之一\n它有如下规则\n1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = \"hello\"; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型\nlet s = String::from(\"hello\"); 对于栈上的数据rust直接复制了\nlet x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了\n如下代码会错误，因为s1无效了，所以发生了无效引用\nlet s1 = String::from(\"hello\"); let s2 = s1; println!(\"{}, world!\", s1); 如果要复制String的数据可以使用clone\nlet s1 = String::from(\"hello\"); let s2 = s1.clone(); println!(\"s1 = {}, s2 = {}\", s1, s2); 所有权与函数 以下程序会报错\nfn main() { let a = String::from(\"Hello\"); print_str(a); println!(\"{}\", a); } fn print_str(str : String) { println!(\"{}\", str); } 说a已经被移动了\nerror[E0382]: borrow of moved value: `a` -- src/main.rs:4:20 | 2 | let a = String::from(\"Hello\"); | - move occurs because `a` has type `String`, which does not implement the `Copy` trait 3 | print_str(a); | - value moved here 4 | println!(\"{}\", a); | ^ value borrowed here after move 这是因为啊的所有权被移动到了print_str函数里，函数结束所有权就消失了\n那应该怎么办呢，不用担心，函数返回值的时候也会返回所有权，我们只需要将原来的参数返回就行\nfn main() { let a = String::from(\"Hello\"); let b = print_str(a); println!(\"{}\", b); } fn print_str(str : String) - String{ println!(\"{}\", str); str } 也可以像下面一样，将要返回的东西和原来的参数一起返回，不过这样着实是有些麻烦，不过我们接下来的东西可以解决\nfn main() { let s1 = String::from(\"hello\"); let (s2, len) = calculate_length(s1); println!(\"The length of '{}' is {}.\", s2, len); } fn calculate_length(s: String) - (String, usize) { let length = s.len(); // len() 返回字符串的长度  (s, length) } 借用 像下面这样在类型前面加个\u0026就是借用了，借用是不能改变值的。\nfn main() { let a = String::from(\"Hello\"); print_str(\u0026a); println!(\"{}\", a); } fn print_str(str : \u0026String){ println!(\"{}\", str); } 以下程序就会报错\nfn main() { let a = String::from(\"Hello\"); print_str(\u0026a); println!(\"{}\", a); } fn print_str(str : \u0026String){ str.push_str(\",World!\"); } error[E0596]: cannot borrow `*str` as mutable, as it is behind a `\u0026` reference -- src/main.rs:8:5 | 7 | fn print_str(str : \u0026String){ | ------- help: consider changing this to be a mutable reference: `\u0026mut String` 8 | str.push_str(\",World!\"); | ^^^ `str` is a `\u0026` reference, so the data it refers to cannot be borrowed as mutable 没错，也可以像可变变量一样加个mut变成可变引用\n以下程序会输出Hello,World!\n要可以引用的话，变量本身也需要可变\nfn main() { let mut a = String::from(\"Hello\"); print_str(\u0026mut a); println!(\"{}\", a); } fn print_str(str : \u0026mut String){ str.push_str(\",World!\"); } 在特定作用域中的特定数据只能有一个可变引用。这些代码会失败：\nlet mut s = String::from(\"hello\"); let r1 = \u0026mut s; let r2 = \u0026mut s; println!(\"{}, {}\", r1, r2); let mut s = String::from(\"hello\"); let r1 = \u0026s; let r2 = \u0026s; let r3 = \u0026mut s; println!(\"{}, {}, and {}\", r1, r2, r3); let mut s = String::from(\"hello\"); let r1 = \u0026s; let r2 = \u0026s; let r3 = \u0026mut s; println!(\"{}\", r3); ",
+  "wordCount" : "397",
   "inLanguage": "zh-cn",
   "datePublished": "2021-04-21T21:45:28+08:00",
   "dateModified": "2021-04-21T21:45:28+08:00",
@@ -283,7 +283,63 @@ println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;s1 
 </span><span style="color:#75715e"></span>    (s, length)
 }
 </code></pre></div><h3 id="借用">借用<a hidden class="anchor" aria-hidden="true" href="#借用">#</a></h3>
+<p>像下面这样在类型前面加个<code>&amp;</code>就是借用了，借用是不能改变值的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+    print_str(<span style="color:#f92672">&amp;</span>a);
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a);
+}
 
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_str</span>(<span style="color:#66d9ef">str</span> : <span style="color:#66d9ef">&amp;</span>String){
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, <span style="color:#66d9ef">str</span>);
+}
+</code></pre></div><p>以下程序就会报错</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+    print_str(<span style="color:#f92672">&amp;</span>a);
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a);
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_str</span>(<span style="color:#66d9ef">str</span> : <span style="color:#66d9ef">&amp;</span>String){
+    <span style="color:#66d9ef">str</span>.push_str(<span style="color:#e6db74">&#34;,World!&#34;</span>);
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">error[E0596]: <span style="color:#a6e22e">cannot</span> borrow <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">*</span><span style="color:#66d9ef">str</span><span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#66d9ef">as</span> mutable, <span style="color:#66d9ef">as</span> it is behind a <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">`</span> reference
+ <span style="color:#f92672">-</span>-&gt; <span style="color:#a6e22e">src</span><span style="color:#f92672">/</span>main.rs:<span style="color:#ae81ff">8</span>:<span style="color:#ae81ff">5</span>
+  <span style="color:#f92672">|</span>
+<span style="color:#ae81ff">7</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_str</span>(<span style="color:#66d9ef">str</span> : <span style="color:#66d9ef">&amp;</span>String){
+  <span style="color:#f92672">|</span>                    <span style="color:#f92672">-------</span> help: <span style="color:#a6e22e">consider</span> changing this to be a mutable reference: <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> String<span style="color:#960050;background-color:#1e0010">`</span>
+<span style="color:#ae81ff">8</span> <span style="color:#f92672">|</span>     <span style="color:#66d9ef">str</span>.push_str(<span style="color:#e6db74">&#34;,World!&#34;</span>);
+  <span style="color:#f92672">|</span>     <span style="color:#f92672">^^^</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#66d9ef">str</span><span style="color:#960050;background-color:#1e0010">`</span> is a <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">`</span> reference, so the data it refers to cannot be borrowed <span style="color:#66d9ef">as</span> mutable
+</code></pre></div><p>没错，也可以像可变变量一样加个<code>mut</code>变成可变引用</p>
+<p>以下程序会输出<code>Hello,World!</code></p>
+<p>要可以引用的话，变量本身也需要可变</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> a <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+    print_str(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> a);
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a);
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_str</span>(<span style="color:#66d9ef">str</span> : <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> String){
+    <span style="color:#66d9ef">str</span>.push_str(<span style="color:#e6db74">&#34;,World!&#34;</span>);
+}
+</code></pre></div><p>在特定作用域中的特定数据只能有一个可变引用。这些代码会失败：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+
+<span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;
+<span style="color:#66d9ef">let</span> r2 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;
+
+println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}, {}&#34;</span>, r1, r2);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+<span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;
+<span style="color:#66d9ef">let</span> r2 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;
+<span style="color:#66d9ef">let</span> r3 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;
+println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}, {}, and {}&#34;</span>, r1, r2, r3);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+<span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;
+<span style="color:#66d9ef">let</span> r2 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;
+<span style="color:#66d9ef">let</span> r3 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;
+println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, r3);
+</code></pre></div>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">

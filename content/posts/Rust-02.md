@@ -129,3 +129,92 @@ fn calculate_length(s: String) -> (String, usize) {
 
 ### 借用
 
+像下面这样在类型前面加个`&`就是借用了，借用是不能改变值的。
+
+```rust
+fn main() {
+    let a = String::from("Hello");
+    print_str(&a);
+    println!("{}", a);
+}
+
+fn print_str(str : &String){
+    println!("{}", str);
+}
+```
+
+以下程序就会报错
+
+```rust
+fn main() {
+    let a = String::from("Hello");
+    print_str(&a);
+    println!("{}", a);
+}
+
+fn print_str(str : &String){
+    str.push_str(",World!");
+}
+```
+
+```rust
+error[E0596]: cannot borrow `*str` as mutable, as it is behind a `&` reference
+ --> src/main.rs:8:5
+  |
+7 | fn print_str(str : &String){
+  |                    ------- help: consider changing this to be a mutable reference: `&mut String`
+8 |     str.push_str(",World!");
+  |     ^^^ `str` is a `&` reference, so the data it refers to cannot be borrowed as mutable
+```
+
+没错，也可以像可变变量一样加个`mut`变成可变引用
+
+以下程序会输出`Hello,World!`
+
+要可以引用的话，变量本身也需要可变
+
+```rust
+fn main() {
+    let mut a = String::from("Hello");
+    print_str(&mut a);
+    println!("{}", a);
+}
+
+fn print_str(str : &mut String){
+    str.push_str(",World!");
+}
+```
+
+在特定作用域中的特定数据只能有一个可变引用。这些代码会失败：
+
+```rust
+let mut s = String::from("hello");
+
+let r1 = &mut s;
+let r2 = &mut s;
+
+println!("{}, {}", r1, r2);
+```
+
+
+
+```rust
+let mut s = String::from("hello");
+let r1 = &s;
+let r2 = &s;
+let r3 = &mut s;
+println!("{}, {}, and {}", r1, r2, r3);
+```
+
+
+
+
+
+```rust
+let mut s = String::from("hello");
+let r1 = &s;
+let r2 = &s;
+let r3 = &mut s;
+println!("{}", r3);
+```
+
