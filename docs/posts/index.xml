@@ -6,7 +6,22 @@
     <description>Recent content in Posts on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Apr 2021 21:45:28 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Apr 2021 11:29:00 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 00</title>
+      <link>https://murphywzhu.github.io/blog/posts/hugo-00/</link>
+      <pubDate>Sun, 25 Apr 2021 11:29:00 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/hugo-00/</guid>
+      <description> Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+ Hugo是一个静态网页框架，可以快速生成网页，并且拥有许多的主题
+安装Hugo
+在archlinux中
+sudo pacman -S hugo 使用源码安装
+需要有git和go(&amp;gt;=1.11)
+mkdir $HOME/src cd $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install --tags extended % hugo version hugo v0.82.0+extended linux/amd64 BuildDate=unknown </description>
+    </item>
+    
     <item>
       <title>Rust所有权</title>
       <link>https://murphywzhu.github.io/blog/posts/rust-02/</link>
