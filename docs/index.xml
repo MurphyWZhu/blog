@@ -18,8 +18,10 @@
 安装Hugo 在archlinux中
 sudo pacman -S hugo 使用源码安装
 需要有git和go(&amp;gt;=1.11)
-mkdir $HOME/src cd $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install --tags extended % hugo version hugo v0.82.0+extended linux/amd64 BuildDate=unknown 新建一个hugo网站项目
-hugo new site blog -f yml git init git branch -m main git submodule add https://github.</description>
+mkdir $HOME/src cd $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install --tags extended % hugo version hugo v0.82.0+extended linux/amd64 BuildDate=unknown 创建网站 先在github上新建一个项目
+然后新建一个hugo网站项目
+hugo new site blog -f yml 初始化git，并设置默认分支名为main
+git init git branch -m main 设置主题，这里设置PaperMod主题</description>
     </item>
     
     <item>
