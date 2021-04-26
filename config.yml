@@ -20,7 +20,7 @@ params:
     profileMode:
         enabled: true
         title: "锦酱" # optional default will be site title
-        subtitle: "锦酱!又出Bug啦!"
+        subtitle: "锦酱!别哭啦，眼睛都肿啦!"
         imageUrl: "https://mublog.oss-cn-beijing.aliyuncs.com/mutx.jpeg" # optional
         imageTitle: "图片被吃掉了哎!" # optional
         imageWidth: 120 # custom size
