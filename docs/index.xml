@@ -6,7 +6,16 @@
     <description>Recent content on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 25 Apr 2021 11:29:00 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 May 2021 20:13:33 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typora 00</title>
+      <link>https://murphywzhu.github.io/blog/posts/typora-00/</link>
+      <pubDate>Sat, 08 May 2021 20:13:33 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/typora-00/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>使用Hugo在github上搭建博客</title>
       <link>https://murphywzhu.github.io/blog/posts/hugo-00/</link>
