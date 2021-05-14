@@ -7,7 +7,11 @@
 <meta name="robots" content="index, follow">
 <title>Typora设置等宽字体 | 锦酱的博客</title>
 <meta name="keywords" content="" />
-<meta name="description" content=" ">
+<meta name="description" content="我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受
+在网上搜索之后，找到了解决办法
+新建这个文件~/.config/Typora/themes/base.user.css
+写入以下内容，字体可以替换为喜欢的字体
+~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了">
 <meta name="author" content="">
 <link rel="canonical" href="https://murphywzhu.github.io/blog/posts/typora-00/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.04512c372388e08b5118f5b117b2d3efef4ddae52017e16085c8d8d4e361c43d.css" integrity="sha256-BFEsNyOI4ItRGPWxF7LT7&#43;9N2uUgF&#43;FghcjY1ONhxD0=" rel="preload stylesheet" as="style">
@@ -22,7 +26,11 @@
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.83.1" />
 <meta property="og:title" content="Typora设置等宽字体" />
-<meta property="og:description" content=" " />
+<meta property="og:description" content="我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受
+在网上搜索之后，找到了解决办法
+新建这个文件~/.config/Typora/themes/base.user.css
+写入以下内容，字体可以替换为喜欢的字体
+~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://murphywzhu.github.io/blog/posts/typora-00/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-05-08T20:13:33&#43;08:00" />
@@ -30,7 +38,11 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Typora设置等宽字体"/>
-<meta name="twitter:description" content=" "/>
+<meta name="twitter:description" content="我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受
+在网上搜索之后，找到了解决办法
+新建这个文件~/.config/Typora/themes/base.user.css
+写入以下内容，字体可以替换为喜欢的字体
+~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了"/>
 
 
 <script type="application/ld+json">
@@ -59,12 +71,12 @@
   "@type": "BlogPosting",
   "headline": "Typora设置等宽字体",
   "name": "Typora设置等宽字体",
-  "description": " ",
+  "description": "我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受\n在网上搜索之后，找到了解决办法\n新建这个文件~/.config/Typora/themes/base.user.css\n写入以下内容，字体可以替换为喜欢的字体\n~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了",
   "keywords": [
     
   ],
-  "articleBody": " ",
-  "wordCount" : "0",
+  "articleBody": "我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受\n在网上搜索之后，找到了解决办法\n新建这个文件~/.config/Typora/themes/base.user.css\n写入以下内容，字体可以替换为喜欢的字体\n~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了\n",
+  "wordCount" : "20",
   "inLanguage": "zh-cn",
   "datePublished": "2021-05-08T20:13:33+08:00",
   "dateModified": "2021-05-08T20:13:33+08:00",
@@ -185,8 +197,24 @@
     <div class="post-meta">May 8, 2021
 </div>
   </header> 
-  <div class="post-content"><iframe style="width:100%;" height="760" frameborder="no" src="https://ac.yunyoujun.cn"></iframe>
-
+  <div class="post-content"><p>我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受</p>
+<p><img loading="lazy" src="https://murphyblog.oss-cn-beijing.aliyuncs.com/Screenshot_20201127_144511.png" alt="01"  />
+</p>
+<p>在网上搜索之后，找到了解决办法</p>
+<p>新建这个文件~/.config/Typora/themes/base.user.css</p>
+<p>写入以下内容，字体可以替换为喜欢的字体</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">~/</span>.<span style="color:#a6e22e">config</span><span style="color:#f92672">/</span><span style="color:#f92672">Typora</span><span style="color:#f92672">/</span><span style="color:#f92672">themes</span><span style="color:#f92672">/</span><span style="color:#f92672">base</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">css</span>
+.<span style="color:#a6e22e">CodeMirror-wrap</span> .<span style="color:#a6e22e">CodeMirror-code</span> <span style="color:#f92672">pre</span> {
+    <span style="color:#66d9ef">font-family</span>: Fira Code;
+}
+.<span style="color:#a6e22e">md-fences</span><span style="color:#f92672">,</span><span style="color:#f92672">code</span><span style="color:#f92672">,</span><span style="color:#f92672">tt</span> {
+    <span style="color:#66d9ef">font-family</span>: Fira Code;
+}
+</code></pre></div><p><img loading="lazy" src="https://murphyblog.oss-cn-beijing.aliyuncs.com/Screenshot_20201127_144616.png" alt="02"  />
+</p>
+<p>保存重启就好了</p>
+<p><img loading="lazy" src="https://murphyblog.oss-cn-beijing.aliyuncs.com/Screenshot_20201127_144643.png" alt="03"  />
+</p>
 
 </div>
   <footer class="post-footer">

@@ -146,7 +146,11 @@
     <h2>Typora设置等宽字体</h2>
   </header>
   <section class="entry-content">
-    <p> </p>
+    <p>我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受
+在网上搜索之后，找到了解决办法
+新建这个文件~/.config/Typora/themes/base.user.css
+写入以下内容，字体可以替换为喜欢的字体
+~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了</p>
   </section>
   <footer class="entry-footer">May 8, 2021</footer>
   <a class="entry-link" aria-label="post link to Typora设置等宽字体" href="https://murphywzhu.github.io/blog/posts/typora-00/"></a>
