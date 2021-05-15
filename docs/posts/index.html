@@ -143,6 +143,35 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>在Archlinux上安装Podman</h2>
+  </header>
+  <section class="entry-content">
+    <p>Podman podman是一个无守护进程的容器引擎，它还可以实现无根运行容器，现在最新版本的红帽系Linux都默认使用podman。
+在Archlinux上安装podman 安装podman
+sudo pacman -S podman crun 配置无根运行
+sudo touch /etc/subuid /etc/subgid sudo usermod --add-subuids 100000-165536 --add-subgids 100000-165536 username #将username替换为用户名 查看podman信息
+podman info 配置podman镜像仓库 新建registries.conf配置文件
+mkdir -p $HOME/.config/containers vim $HOME/.config/containers/registries.conf 将以下内容写入registries.conf
+unqualified-search-registries = [&#34;docker.io&#34;] [[registry]] prefix = &#34;docker.io&#34; location = &#34;docker.mirrors.sjtug.sjtu.edu.cn&#34; 查看是否成功
+podman info | grep Location 输出：Location: docker.mirrors.sjtug.sjtu.edu.cn </p>
+  </section>
+  <footer class="entry-footer">May 15, 2021</footer>
+  <a class="entry-link" aria-label="post link to 在Archlinux上安装Podman" href="https://murphywzhu.github.io/blog/posts/podman-00/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Rust 03</h2>
+  </header>
+  <section class="entry-content">
+    <p></p>
+  </section>
+  <footer class="entry-footer">May 15, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust 03" href="https://murphywzhu.github.io/blog/posts/rust-03/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>锦酱胡思乱想-零</h2>
   </header>
   <section class="entry-content">

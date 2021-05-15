@@ -6,11 +6,29 @@
     <description>Recent content in Tags on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Apr 2021 21:45:28 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 12:36:01 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>podman</title>
+      <link>https://murphywzhu.github.io/blog/tags/podman/</link>
+      <pubDate>Sat, 15 May 2021 12:36:01 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/tags/podman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>容器</title>
+      <link>https://murphywzhu.github.io/blog/tags/%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Sat, 15 May 2021 12:36:01 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/tags/%E5%AE%B9%E5%99%A8/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Rust</title>
       <link>https://murphywzhu.github.io/blog/tags/rust/</link>
-      <pubDate>Wed, 21 Apr 2021 21:45:28 +0800</pubDate>
+      <pubDate>Sat, 15 May 2021 12:33:56 +0800</pubDate>
       
       <guid>https://murphywzhu.github.io/blog/tags/rust/</guid>
       <description></description>

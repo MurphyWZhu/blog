@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Tags | 锦酱的博客</title>
+<title>容器 | 锦酱的博客</title>
 <meta name="keywords" content="" />
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="https://murphywzhu.github.io/blog/tags/" />
+<link rel="canonical" href="https://murphywzhu.github.io/blog/tags/%E5%AE%B9%E5%99%A8/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.04512c372388e08b5118f5b117b2d3efef4ddae52017e16085c8d8d4e361c43d.css" integrity="sha256-BFEsNyOI4ItRGPWxF7LT7&#43;9N2uUgF&#43;FghcjY1ONhxD0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://murphywzhu.github.io/blog/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://murphywzhu.github.io/blog/favicon-16x16.png">
@@ -19,14 +19,14 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.83.1" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/tags/index.xml">
-<meta property="og:title" content="Tags" />
+<link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/tags/%E5%AE%B9%E5%99%A8/index.xml">
+<meta property="og:title" content="容器" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://murphywzhu.github.io/blog/tags/" />
+<meta property="og:url" content="https://murphywzhu.github.io/blog/tags/%E5%AE%B9%E5%99%A8/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
+<meta name="twitter:title" content="容器"/>
 <meta name="twitter:description" content=""/>
 
 </head>
@@ -115,31 +115,34 @@
             </li>
             <li>
                 <a href="https://murphywzhu.github.io/blog/tags/" title="Tags">
-                    <span class="active">Tags</span>
+                    <span>Tags</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main">
+<main class="main"> 
 <header class="page-header">
-    <h1>Tags</h1>
+  <h1>容器</h1>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="https://murphywzhu.github.io/blog/tags/first/">first <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://murphywzhu.github.io/blog/tags/podman/">podman <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://murphywzhu.github.io/blog/tags/rust/">Rust <sup><strong><sup>4</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://murphywzhu.github.io/blog/tags/%E5%AE%B9%E5%99%A8/">容器 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>在Archlinux上安装Podman</h2>
+  </header>
+  <section class="entry-content">
+    <p>Podman podman是一个无守护进程的容器引擎，它还可以实现无根运行容器，现在最新版本的红帽系Linux都默认使用podman。
+在Archlinux上安装podman 安装podman
+sudo pacman -S podman crun 配置无根运行
+sudo touch /etc/subuid /etc/subgid sudo usermod --add-subuids 100000-165536 --add-subgids 100000-165536 username #将username替换为用户名 查看podman信息
+podman info 配置podman镜像仓库 新建registries.conf配置文件
+mkdir -p $HOME/.config/containers vim $HOME/.config/containers/registries.conf 将以下内容写入registries.conf
+unqualified-search-registries = [&#34;docker.io&#34;] [[registry]] prefix = &#34;docker.io&#34; location = &#34;docker.mirrors.sjtug.sjtu.edu.cn&#34; 查看是否成功
+podman info | grep Location 输出：Location: docker.mirrors.sjtug.sjtu.edu.cn </p>
+  </section>
+  <footer class="entry-footer">May 15, 2021</footer>
+  <a class="entry-link" aria-label="post link to 在Archlinux上安装Podman" href="https://murphywzhu.github.io/blog/posts/podman-00/"></a>
+</article>
     </main>
     <footer class="footer">
     <span>&copy; 2021 <a href="https://murphywzhu.github.io/blog/">锦酱的博客</a></span>

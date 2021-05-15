@@ -6,7 +6,32 @@
     <description>Recent content on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 May 2021 12:02:53 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 12:36:01 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Archlinux上安装Podman</title>
+      <link>https://murphywzhu.github.io/blog/posts/podman-00/</link>
+      <pubDate>Sat, 15 May 2021 12:36:01 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/podman-00/</guid>
+      <description>Podman podman是一个无守护进程的容器引擎，它还可以实现无根运行容器，现在最新版本的红帽系Linux都默认使用podman。
+在Archlinux上安装podman 安装podman
+sudo pacman -S podman crun 配置无根运行
+sudo touch /etc/subuid /etc/subgid sudo usermod --add-subuids 100000-165536 --add-subgids 100000-165536 username #将username替换为用户名 查看podman信息
+podman info 配置podman镜像仓库 新建registries.conf配置文件
+mkdir -p $HOME/.config/containers vim $HOME/.config/containers/registries.conf 将以下内容写入registries.conf
+unqualified-search-registries = [&amp;#34;docker.io&amp;#34;] [[registry]] prefix = &amp;#34;docker.io&amp;#34; location = &amp;#34;docker.mirrors.sjtug.sjtu.edu.cn&amp;#34; 查看是否成功
+podman info | grep Location 输出：Location: docker.mirrors.sjtug.sjtu.edu.cn </description>
+    </item>
+    
+    <item>
+      <title>Rust 03</title>
+      <link>https://murphywzhu.github.io/blog/posts/rust-03/</link>
+      <pubDate>Sat, 15 May 2021 12:33:56 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/rust-03/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>锦酱胡思乱想-零</title>
       <link>https://murphywzhu.github.io/blog/posts/murphy-00/</link>
