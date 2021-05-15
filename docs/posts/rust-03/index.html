@@ -5,9 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Rust 03 | 锦酱的博客</title>
+<title>Rust结构体 | 锦酱的博客</title>
 <meta name="keywords" content="Rust" />
-<meta name="description" content="Rust 03 - 锦酱的博客">
+<meta name="description" content="结构体 定义结构体
+struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
+let mut user1 = User { email: String::from(&#34;someone@example.com&#34;), username: String::from(&#34;someusername123&#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&#34;anotheremail@example.com&#34;); 返回结构体
+fn build_user(email: String, username: String) -&gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
+fn build_user(email: String, username: String) -&gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例">
 <meta name="author" content="">
 <link rel="canonical" href="https://murphywzhu.github.io/blog/posts/rust-03/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.04512c372388e08b5118f5b117b2d3efef4ddae52017e16085c8d8d4e361c43d.css" integrity="sha256-BFEsNyOI4ItRGPWxF7LT7&#43;9N2uUgF&#43;FghcjY1ONhxD0=" rel="preload stylesheet" as="style">
@@ -21,16 +26,26 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.83.1" />
-<meta property="og:title" content="Rust 03" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="Rust结构体" />
+<meta property="og:description" content="结构体 定义结构体
+struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
+let mut user1 = User { email: String::from(&#34;someone@example.com&#34;), username: String::from(&#34;someusername123&#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&#34;anotheremail@example.com&#34;); 返回结构体
+fn build_user(email: String, username: String) -&gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
+fn build_user(email: String, username: String) -&gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://murphywzhu.github.io/blog/posts/rust-03/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-05-15T12:33:56&#43;08:00" />
 <meta property="article:modified_time" content="2021-05-15T12:33:56&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Rust 03"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Rust结构体"/>
+<meta name="twitter:description" content="结构体 定义结构体
+struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
+let mut user1 = User { email: String::from(&#34;someone@example.com&#34;), username: String::from(&#34;someusername123&#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&#34;anotheremail@example.com&#34;); 返回结构体
+fn build_user(email: String, username: String) -&gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
+fn build_user(email: String, username: String) -&gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例"/>
 
 
 <script type="application/ld+json">
@@ -47,7 +62,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Rust 03",
+      "name": "Rust结构体",
       "item": "https://murphywzhu.github.io/blog/posts/rust-03/"
     }
   ]
@@ -57,14 +72,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Rust 03",
-  "name": "Rust 03",
-  "description": "",
+  "headline": "Rust结构体",
+  "name": "Rust结构体",
+  "description": "结构体 定义结构体\nstruct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例\nlet mut user1 = User { email: String::from(\u0026#34;someone@example.com\u0026#34;), username: String::from(\u0026#34;someusername123\u0026#34;), active: true, sign_in_count: 1, }; 改变实例属性\nuser1.email = String::from(\u0026#34;anotheremail@example.com\u0026#34;); 返回结构体\nfn build_user(email: String, username: String) -\u0026gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法\nfn build_user(email: String, username: String) -\u0026gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例",
   "keywords": [
     "Rust"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "结构体 定义结构体\nstruct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例\nlet mut user1 = User { email: String::from(\"someone@example.com\"), username: String::from(\"someusername123\"), active: true, sign_in_count: 1, }; 改变实例属性\nuser1.email = String::from(\"anotheremail@example.com\"); 返回结构体\nfn build_user(email: String, username: String) - User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法\nfn build_user(email: String, username: String) - User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例\nlet user2 = User { email: String::from(\"another@example.com\"), username: String::from(\"anotherusername567\"), active: user1.active, sign_in_count: user1.sign_in_count, }; let user2 = User { email: String::from(\"another@example.com\"), username: String::from(\"anotherusername567\"), ..user1 }; ",
+  "wordCount" : "100",
   "inLanguage": "zh-cn",
   "datePublished": "2021-05-15T12:33:56+08:00",
   "dateModified": "2021-05-15T12:33:56+08:00",
@@ -180,12 +195,59 @@
   <header class="post-header">
     
     <h1 class="post-title">
-      Rust 03
+      Rust结构体
     </h1>
     <div class="post-meta">May 15, 2021
 </div>
   </header> 
-  <div class="post-content">
+  <div class="post-content"><h3 id="结构体">结构体<a hidden class="anchor" aria-hidden="true" href="#结构体">#</a></h3>
+<p>定义结构体</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">User</span> {
+    username: String,
+    email: String,
+    sign_in_count: <span style="color:#66d9ef">u64</span>,
+    active: <span style="color:#66d9ef">bool</span>,
+}
+</code></pre></div><p>创建结构体实例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> user1 <span style="color:#f92672">=</span> User {
+    email: String::from(<span style="color:#e6db74">&#34;someone@example.com&#34;</span>),
+    username: String::from(<span style="color:#e6db74">&#34;someusername123&#34;</span>),
+    active: <span style="color:#a6e22e">true</span>,
+    sign_in_count: <span style="color:#ae81ff">1</span>,
+};
+</code></pre></div><p>改变实例属性</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">user1.email <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;anotheremail@example.com&#34;</span>);
+</code></pre></div><p>返回结构体</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">build_user</span>(email: String, username: String) -&gt; <span style="color:#a6e22e">User</span> {
+    User {
+        email: <span style="color:#a6e22e">email</span>,
+        username: <span style="color:#a6e22e">username</span>,
+        active: <span style="color:#a6e22e">true</span>,
+        sign_in_count: <span style="color:#ae81ff">1</span>,
+    }
+}
+</code></pre></div><p>变量与字段同名是的字段初始化简写语法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">build_user</span>(email: String, username: String) -&gt; <span style="color:#a6e22e">User</span> {
+    User {
+        email,
+        username,
+        active: <span style="color:#a6e22e">true</span>,
+        sign_in_count: <span style="color:#ae81ff">1</span>,
+    }
+}
+</code></pre></div><p>使用结构体更新语法从其他实例创建实例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> user2 <span style="color:#f92672">=</span> User {
+    email: String::from(<span style="color:#e6db74">&#34;another@example.com&#34;</span>),
+    username: String::from(<span style="color:#e6db74">&#34;anotherusername567&#34;</span>),
+    active: <span style="color:#a6e22e">user1</span>.active,
+    sign_in_count: <span style="color:#a6e22e">user1</span>.sign_in_count,
+};
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> user2 <span style="color:#f92672">=</span> User {
+    email: String::from(<span style="color:#e6db74">&#34;another@example.com&#34;</span>),
+    username: String::from(<span style="color:#e6db74">&#34;anotherusername567&#34;</span>),
+    ..user1
+};
+</code></pre></div>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">

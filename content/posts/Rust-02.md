@@ -196,25 +196,76 @@ let r2 = &mut s;
 println!("{}, {}", r1, r2);
 ```
 
-
-
 ```rust
-let mut s = String::from("hello");
-let r1 = &s;
-let r2 = &s;
-let r3 = &mut s;
-println!("{}, {}, and {}", r1, r2, r3);
+error[E0499]: cannot borrow `s` as mutable more than once at a time
+ --> src/main.rs:5:14
+  |
+4 |     let r1 = &mut s;
+  |              ------ first mutable borrow occurs here
+5 |     let r2 = &mut s;
+  |              ^^^^^^ second mutable borrow occurs here
+6 | 
+7 |     println!("{}, {}", r1, r2);
+  |                        -- first borrow later used here
 ```
 
+可以理解为一个对象只能同时存在一个可用的引用
 
-
-
+以下代码就可以使用
 
 ```rust
 let mut s = String::from("hello");
-let r1 = &s;
-let r2 = &s;
-let r3 = &mut s;
-println!("{}", r3);
+
+let r1 = &mut s;
+let r2 = &mut s;
+println!("{}", r2);
+```
+
+因为`r1`在`r2`之后不再使用
+
+
+
+### 悬垂引用
+
+`Rust`里的悬垂引用相当于其他语言里的悬垂指针，内存释放了，指针还在的意思
+
+以下程序会出现悬垂引用
+
+```rust
+fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
+}
+```
+
+```rust
+error[E0106]: missing lifetime specifier
+ --> src/main.rs:5:16
+  |
+5 | fn dangle() -> &String {
+  |                ^ expected named lifetime parameter
+  |
+  = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+help: consider using the `'static` lifetime
+  |
+5 | fn dangle() -> &'static String {
+  |                ^^^^^^^^
+```
+
+因为`s`的作用域在`{}`之间，出了作用域就被释放了，这样返回的引用就变成了悬垂引用
+
+解决办法就是直接返回`String`
+
+```rust
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
+}
 ```
 
