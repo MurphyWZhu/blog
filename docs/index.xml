@@ -38,17 +38,6 @@ fn build_user(email: String, username: String) -&amp;gt; User { User { email, us
     </item>
     
     <item>
-      <title>锦酱胡思乱想-零</title>
-      <link>https://murphywzhu.github.io/blog/posts/murphy-00/</link>
-      <pubDate>Sat, 15 May 2021 12:02:53 +0800</pubDate>
-      
-      <guid>https://murphywzhu.github.io/blog/posts/murphy-00/</guid>
-      <description>​	锦酱经常在想他自己是不是一个很没用的人，不然事情为什么会变成这样。有时候他会觉得自己一无是处，不知道做什么好。感觉人生都没有了意义。锦酱的归宿在哪呢？
-​	锦酱还是一个心灵脆弱的人，受不了打击。受到打击后感觉人生都没有意义了呢。锦酱为什么有这么多的缺点，而且还改不掉呢？
-​	锦酱是一个不相信爱情的人。至少现在是。</description>
-    </item>
-    
-    <item>
       <title>Typora设置等宽字体</title>
       <link>https://murphywzhu.github.io/blog/posts/typora-00/</link>
       <pubDate>Sat, 08 May 2021 20:13:33 +0800</pubDate>
