@@ -133,8 +133,8 @@
   <section class="entry-content">
     <p>结构体 定义结构体
 struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
-let mut user1 = User { email: String::from(&#34;someone@example.com&#34;), username: String::from(&#34;someusername123&#34;), active: true, sign_in_count: 1, }; 改变实例属性
-user1.email = String::from(&#34;anotheremail@example.com&#34;); 返回结构体
+let mut user1 = User { email: String::from(&#34;Murphy.W.Zhu@aliyun.com&#34;), username: String::from(&#34;Murphy.W.Zhu&#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&#34;Murphy.W.Zhu@aliyun.com&#34;); 返回结构体
 fn build_user(email: String, username: String) -&gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
 fn build_user(email: String, username: String) -&gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例...</p>
   </section>

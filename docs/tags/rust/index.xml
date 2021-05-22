@@ -15,8 +15,8 @@
       <guid>https://murphywzhu.github.io/blog/posts/rust-03/</guid>
       <description>结构体 定义结构体
 struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
-let mut user1 = User { email: String::from(&amp;#34;someone@example.com&amp;#34;), username: String::from(&amp;#34;someusername123&amp;#34;), active: true, sign_in_count: 1, }; 改变实例属性
-user1.email = String::from(&amp;#34;anotheremail@example.com&amp;#34;); 返回结构体
+let mut user1 = User { email: String::from(&amp;#34;Murphy.W.Zhu@aliyun.com&amp;#34;), username: String::from(&amp;#34;Murphy.W.Zhu&amp;#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&amp;#34;Murphy.W.Zhu@aliyun.com&amp;#34;); 返回结构体
 fn build_user(email: String, username: String) -&amp;gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
 fn build_user(email: String, username: String) -&amp;gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例</description>
     </item>
