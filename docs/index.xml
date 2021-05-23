@@ -17,7 +17,9 @@
 新建vector
 let v: Vec&amp;lt;i32&amp;gt; = Vec::new(); 或者使用rust提供的vec!宏来新建一个vector
 let v = vec![1, 2, 3]; 更新vector
-let mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素</description>
+let mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素
+let v = vec![1, 2, 3, 4, 5]; let third: &amp;amp;i32 = &amp;amp;v[2]; println!(&amp;#34;The third element is {}&amp;#34;, third); match v.get(2) { Some(third) =&amp;gt; println!(&amp;#34;The third element is {}&amp;#34;, third), None =&amp;gt; println!(&amp;#34;There is no third element.&amp;#34;), } 下面代码会报错
+let mut v = vec![1, 2, 3, 4, 5]; let first = &amp;amp;v[0]; v.</description>
     </item>
     
     <item>
