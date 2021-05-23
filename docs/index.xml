@@ -6,7 +6,19 @@
     <description>Recent content on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 May 2021 12:36:01 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 May 2021 20:03:35 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust枚举</title>
+      <link>https://murphywzhu.github.io/blog/posts/rust-04/</link>
+      <pubDate>Sat, 22 May 2021 20:03:35 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/rust-04/</guid>
+      <description>定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+如函数：
+fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
+route(IpAddrKind::V4); route(IpAddrKind::V6); </description>
+    </item>
+    
     <item>
       <title>在Archlinux上安装Podman</title>
       <link>https://murphywzhu.github.io/blog/posts/podman-00/</link>

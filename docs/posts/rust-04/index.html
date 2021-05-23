@@ -5,12 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Rust | 锦酱的博客</title>
-<meta name="keywords" content="" />
-<meta name="description" content="">
+<title>Rust枚举 | 锦酱的博客</title>
+<meta name="keywords" content="Rust" />
+<meta name="description" content="定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+如函数：
+fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
+route(IpAddrKind::V4); route(IpAddrKind::V6); ">
 <meta name="author" content="">
-<link rel="canonical" href="https://murphywzhu.github.io/blog/tags/rust/" />
+<link rel="canonical" href="https://murphywzhu.github.io/blog/posts/rust-04/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.04512c372388e08b5118f5b117b2d3efef4ddae52017e16085c8d8d4e361c43d.css" integrity="sha256-BFEsNyOI4ItRGPWxF7LT7&#43;9N2uUgF&#43;FghcjY1ONhxD0=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/blog/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://murphywzhu.github.io/blog/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://murphywzhu.github.io/blog/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://murphywzhu.github.io/blog/favicon-32x32.png">
@@ -19,19 +24,76 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.83.1" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/tags/rust/index.xml">
-<meta property="og:title" content="Rust" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://murphywzhu.github.io/blog/tags/rust/" />
+<meta property="og:title" content="Rust枚举" />
+<meta property="og:description" content="定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+如函数：
+fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
+route(IpAddrKind::V4); route(IpAddrKind::V6); " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://murphywzhu.github.io/blog/posts/rust-04/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-22T20:03:35&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-22T20:03:35&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Rust"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Rust枚举"/>
+<meta name="twitter:description" content="定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+如函数：
+fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
+route(IpAddrKind::V4); route(IpAddrKind::V6); "/>
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://murphywzhu.github.io/blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Rust枚举",
+      "item": "https://murphywzhu.github.io/blog/posts/rust-04/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Rust枚举",
+  "name": "Rust枚举",
+  "description": "定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind\n如函数：\nfn rout(ip_type: IpAddrKind) { } 可以向下面一样调用\nroute(IpAddrKind::V4); route(IpAddrKind::V6); ",
+  "keywords": [
+    "Rust"
+  ],
+  "articleBody": "定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind\n如函数：\nfn rout(ip_type: IpAddrKind) { } 可以向下面一样调用\nroute(IpAddrKind::V4); route(IpAddrKind::V6); ",
+  "wordCount" : "26",
+  "inLanguage": "zh-cn",
+  "datePublished": "2021-05-22T20:03:35+08:00",
+  "dateModified": "2021-05-22T20:03:35+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://murphywzhu.github.io/blog/posts/rust-04/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "锦酱的博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://murphywzhu.github.io/blog/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -121,89 +183,38 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>Rust</h1>
-</header>
+<main class="main">
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Rust枚举</h2>
-  </header>
-  <section class="entry-content">
-    <p>定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
-如函数：
-fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
-route(IpAddrKind::V4); route(IpAddrKind::V6); </p>
-  </section>
-  <footer class="entry-footer">May 22, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust枚举" href="https://murphywzhu.github.io/blog/posts/rust-04/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Rust结构体</h2>
-  </header>
-  <section class="entry-content">
-    <p>结构体 定义结构体
-struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
-let mut user1 = User { email: String::from(&#34;Murphy.W.Zhu@aliyun.com&#34;), username: String::from(&#34;Murphy.W.Zhu&#34;), active: true, sign_in_count: 1, }; 改变实例属性
-user1.email = String::from(&#34;Murphy.W.Zhu@aliyun.com&#34;); 返回结构体
-fn build_user(email: String, username: String) -&gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
-fn build_user(email: String, username: String) -&gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例...</p>
-  </section>
-  <footer class="entry-footer">May 15, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust结构体" href="https://murphywzhu.github.io/blog/posts/rust-03/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Rust所有权</h2>
-  </header>
-  <section class="entry-content">
-    <p>所有权 所有权是rust的核心之一
-它有如下规则
-1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = &#34;hello&#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
-let s = String::from(&#34;hello&#34;); 对于栈上的数据rust直接复制了
-let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
-如下代码会错误，因为s1无效了，所以发生了无效引用
-let s1 = String::from(&#34;hello&#34;); let s2 = s1; println!(&#34;{}, world!&#34;, s1); 如果要复制String的数据可以使用clone
-let s1 = String::from(&#34;hello&#34;); let s2 = s1....</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust所有权" href="https://murphywzhu.github.io/blog/posts/rust-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Rust常见编程概念</h2>
-  </header>
-  <section class="entry-content">
-    <p>不变变量 以下程序理所当然的输出5
-fn main() { let a = 5; println!(&#34;{}&#34;, a); } 而当你尝试改变a的值时
-fn main() { let a = 5; a = 6; println!(&#34;{}&#34;, a); } 则会出现错误
-error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议...</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust常见编程概念" href="https://murphywzhu.github.io/blog/posts/rust-01/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg" alt="Rust">
-</figure>
-  <header class="entry-header">
-    <h2>Rust初试</h2>
-  </header>
-  <section class="entry-content">
-    <p>Rust 据官网说介绍rust是一门高性能，高可靠的编程语言，最主要的特点就是安全可靠，据悉Linux内核都在考虑是否用rust代替C
-Rust安装 可以使用官方的rustup来安装rust以及其他工具
-sudo pacman -S rustup 设置rustup的下载源
-export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup 安装rust
-rustup install stable rustup component add rust-src Helloworld
-Code % cargo new hello-world Created binary (application) `hello-world` package Code % cd hello-world hello-world[master*] % ls Cargo.toml src hello-world[master*] % cargo run Compiling hello-world v0.1.0 (/home/murphy/Code/hello-world) Finished dev [unoptimized &#43; debuginfo] target(s) in 1.15s Running `target/debug/hello-world` Hello, world! Rust IDE rust还没有官方的IDE，我使用Clion的rust插件来写</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust初试" href="https://murphywzhu.github.io/blog/posts/rust/"></a>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Rust枚举
+    </h1>
+    <div class="post-meta">May 22, 2021
+</div>
+  </header> 
+  <div class="post-content"><h3 id="定义枚举">定义枚举<a hidden class="anchor" aria-hidden="true" href="#定义枚举">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">IpAddrKind</span> {
+    V4,
+    V6,
+}
+</code></pre></div><h3 id="枚举值">枚举值<a hidden class="anchor" aria-hidden="true" href="#枚举值">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> four <span style="color:#f92672">=</span> IpAddrKind::V4;
+<span style="color:#66d9ef">let</span> six <span style="color:#f92672">=</span> IpAddrKind::V6;
+</code></pre></div><p>他们的类型都是<code>IpAddrKind</code></p>
+<p>如函数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">rout</span>(ip_type: <span style="color:#a6e22e">IpAddrKind</span>) { }
+</code></pre></div><p>可以向下面一样调用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">route(IpAddrKind::V4);
+route(IpAddrKind::V6);
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://murphywzhu.github.io/blog/tags/rust/">Rust</a></li>
+    </ul>
+  </footer>
 </article>
     </main>
     <footer class="footer">
@@ -276,6 +287,53 @@ Code % cargo new hello-world Created binary (application) `hello-world` package 
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
