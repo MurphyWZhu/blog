@@ -83,3 +83,66 @@ let row = vec![
 
 ### 字符串
 
+新建字符串
+
+```rust
+let mut s = String::new();//新建空字符串
+let s = "initial contents".to_string();//用to_string新建字符串
+let s = String::from("initial contents");//用from新建字符串
+```
+
+更新字符串
+
+```rust
+let mut s = String::from("hello");
+s.push_str("world");//将字符串添加到string
+s.push('!');//将字符添加到string
+```
+
+使用`+`或`format!`拼接字符串
+
+```rust
+let s1 = String::from("Hello,");
+let s2 = String::from("world!");
+let s3 = s1 + &s2;//s1 被移动了，不能继续使用
+```
+
+```rust
+let s1 = String::from("tic");
+let s2 = String::from("tac");
+let s3 = String::from("toe");
+let s = format!("{}-{}-{}", s1, s2, s3);//会获取任何参数的所有权
+```
+
+遍历字符串
+
+```rust
+for c in "你好，世界".chars() {
+	println!("{}", c);
+}
+```
+
+### 哈希`map`键值对
+
+新建一个哈希`map`
+
+```rust
+use std::collections::HashMap;
+let mut scores = HashMap::new();
+scores.insert(String::from("Blue"), 10);
+scores.insert(String::from("Yellow"), 50);
+```
+
+哈希`map`所有的键必须是相同类型，所有的值也必须是相同类型
+
+也可以使用下面的方法构建一个哈希`map`
+
+```rust
+use std::collections::HashMap;
+
+let teams  = vec![String::from("Blue"), String::from("Yellow")];
+let initial_scores = vec![10, 50];
+
+let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
+```
+

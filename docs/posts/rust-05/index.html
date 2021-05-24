@@ -81,8 +81,8 @@ let mut v = vec![1, 2, 3, 4, 5]; let first = &amp;v[0]; v."/>
   "keywords": [
     
   ],
-  "articleBody": "vector vector在内存中是连续的，只能存储相同类型的值\n新建vector\nlet v: Veci32 = Vec::new(); 或者使用rust提供的vec!宏来新建一个vector\nlet v = vec![1, 2, 3]; 更新vector\nlet mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素\nlet v = vec![1, 2, 3, 4, 5]; let third: \u0026i32 = \u0026v[2]; println!(\"The third element is {}\", third); match v.get(2) { Some(third) = println!(\"The third element is {}\", third), None = println!(\"There is no third element.\"), } 下面代码会报错\nlet mut v = vec![1, 2, 3, 4, 5]; let first = \u0026v[0]; v.push(6);//加入一个元素会使v重新分配一块连续的地址，所以原来的引用就无效了，rust不允许无效引用 println!(\"The first element is: {}\", first); 遍历vector\nlet v = vec![1, 2, 3, 4, 5]; for i in \u0026v { println!(\"{}\", i); } 使用枚举来存储多种类型\nvector只能存储一种类型，而枚举算一种类型，可以用枚举来存储多种类型\n#![allow(unused)] fn main() { enum SpreadsheetCell { Int(i32), Float(f64), Text(String), } let row = vec![ SpreadsheetCell::Int(3), SpreadsheetCell::Text(String::from(\"blue\")), SpreadsheetCell::Float(10.12), ]; } 字符串 ",
-  "wordCount" : "122",
+  "articleBody": "vector vector在内存中是连续的，只能存储相同类型的值\n新建vector\nlet v: Veci32 = Vec::new(); 或者使用rust提供的vec!宏来新建一个vector\nlet v = vec![1, 2, 3]; 更新vector\nlet mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素\nlet v = vec![1, 2, 3, 4, 5]; let third: \u0026i32 = \u0026v[2]; println!(\"The third element is {}\", third); match v.get(2) { Some(third) = println!(\"The third element is {}\", third), None = println!(\"There is no third element.\"), } 下面代码会报错\nlet mut v = vec![1, 2, 3, 4, 5]; let first = \u0026v[0]; v.push(6);//加入一个元素会使v重新分配一块连续的地址，所以原来的引用就无效了，rust不允许无效引用 println!(\"The first element is: {}\", first); 遍历vector\nlet v = vec![1, 2, 3, 4, 5]; for i in \u0026v { println!(\"{}\", i); } 使用枚举来存储多种类型\nvector只能存储一种类型，而枚举算一种类型，可以用枚举来存储多种类型\n#![allow(unused)] fn main() { enum SpreadsheetCell { Int(i32), Float(f64), Text(String), } let row = vec![ SpreadsheetCell::Int(3), SpreadsheetCell::Text(String::from(\"blue\")), SpreadsheetCell::Float(10.12), ]; } 字符串 新建字符串\nlet mut s = String::new();//新建空字符串 let s = \"initial contents\".to_string();//用to_string新建字符串 let s = String::from(\"initial contents\");//用from新建字符串 更新字符串\nlet mut s = String::from(\"hello\"); s.push_str(\"world\");//将字符串添加到string s.push('!');//将字符添加到string 使用+或format!拼接字符串\nlet s1 = String::from(\"Hello,\"); let s2 = String::from(\"world!\"); let s3 = s1 + \u0026s2;//s1 被移动了，不能继续使用 let s1 = String::from(\"tic\"); let s2 = String::from(\"tac\"); let s3 = String::from(\"toe\"); let s = format!(\"{}-{}-{}\", s1, s2, s3);//会获取任何参数的所有权 遍历字符串\nfor c in \"你好，世界\".chars() { println!(\"{}\", c); } 哈希map键值对 新建一个哈希map\nuse std::collections::HashMap; let mut scores = HashMap::new(); scores.insert(String::from(\"Blue\"), 10); scores.insert(String::from(\"Yellow\"), 50); 哈希map所有的键必须是相同类型，所有的值也必须是相同类型\n也可以使用下面的方法构建一个哈希map\nuse std::collections::HashMap; let teams = vec![String::from(\"Blue\"), String::from(\"Yellow\")]; let initial_scores = vec![10, 50]; let scores: HashMap_, _ = teams.iter().zip(initial_scores.iter()).collect(); ",
+  "wordCount" : "223",
   "inLanguage": "zh-cn",
   "datePublished": "2021-05-23T11:48:49+08:00",
   "dateModified": "2021-05-23T11:48:49+08:00",
@@ -250,7 +250,41 @@ v.push(<span style="color:#ae81ff">6</span>);<span style="color:#75715e">//加�
 ];
 }
 </code></pre></div><h3 id="字符串">字符串<a hidden class="anchor" aria-hidden="true" href="#字符串">#</a></h3>
+<p>新建字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::new();<span style="color:#75715e">//新建空字符串
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;initial contents&#34;</span>.to_string();<span style="color:#75715e">//用to_string新建字符串
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;initial contents&#34;</span>);<span style="color:#75715e">//用from新建字符串
+</span></code></pre></div><p>更新字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+s.push_str(<span style="color:#e6db74">&#34;world&#34;</span>);<span style="color:#75715e">//将字符串添加到string
+</span><span style="color:#75715e"></span>s.push(<span style="color:#e6db74">&#39;!&#39;</span>);<span style="color:#75715e">//将字符添加到string
+</span></code></pre></div><p>使用<code>+</code>或<code>format!</code>拼接字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello,&#34;</span>);
+<span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;world!&#34;</span>);
+<span style="color:#66d9ef">let</span> s3 <span style="color:#f92672">=</span> s1 <span style="color:#f92672">+</span> <span style="color:#f92672">&amp;</span>s2;<span style="color:#75715e">//s1 被移动了，不能继续使用
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;tic&#34;</span>);
+<span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;tac&#34;</span>);
+<span style="color:#66d9ef">let</span> s3 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;toe&#34;</span>);
+<span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> format<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}-{}-{}&#34;</span>, s1, s2, s3);<span style="color:#75715e">//会获取任何参数的所有权
+</span></code></pre></div><p>遍历字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">for</span> c <span style="color:#66d9ef">in</span> <span style="color:#e6db74">&#34;你好，世界&#34;</span>.chars() {
+	println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, c);
+}
+</code></pre></div><h3 id="哈希map键值对">哈希<code>map</code>键值对<a hidden class="anchor" aria-hidden="true" href="#哈希map键值对">#</a></h3>
+<p>新建一个哈希<code>map</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">use</span> std::collections::HashMap;
+<span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> scores <span style="color:#f92672">=</span> HashMap::new();
+scores.insert(String::from(<span style="color:#e6db74">&#34;Blue&#34;</span>), <span style="color:#ae81ff">10</span>);
+scores.insert(String::from(<span style="color:#e6db74">&#34;Yellow&#34;</span>), <span style="color:#ae81ff">50</span>);
+</code></pre></div><p>哈希<code>map</code>所有的键必须是相同类型，所有的值也必须是相同类型</p>
+<p>也可以使用下面的方法构建一个哈希<code>map</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">use</span> std::collections::HashMap;
 
+<span style="color:#66d9ef">let</span> teams  <span style="color:#f92672">=</span> vec<span style="color:#f92672">!</span>[String::from(<span style="color:#e6db74">&#34;Blue&#34;</span>), String::from(<span style="color:#e6db74">&#34;Yellow&#34;</span>)];
+<span style="color:#66d9ef">let</span> initial_scores <span style="color:#f92672">=</span> vec<span style="color:#f92672">!</span>[<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">50</span>];
+
+<span style="color:#66d9ef">let</span> scores: <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span>_, _<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> teams.iter().zip(initial_scores.iter()).collect();
+</code></pre></div>
 </div>
   <footer class="post-footer">
   </footer>
