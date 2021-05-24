@@ -160,16 +160,18 @@ let mut v = vec![1, 2, 3, 4, 5]; let first = &amp;v[0]; v....</p>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Rust枚举</h2>
+    <h2>Rust枚举和模式匹配</h2>
   </header>
   <section class="entry-content">
-    <p>定义枚举 enum IpAddrKind { V4, V6, } 枚举值 let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+    <p>枚举 定义枚举
+enum IpAddrKind { V4, V6, } 枚举值
+let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
 如函数：
 fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
-route(IpAddrKind::V4); route(IpAddrKind::V6); </p>
+route(IpAddrKind::V4); route(IpAddrKind::V6); match控制流运算符 enum Coin { Penny, Nickel, Dime, Quarter, } let a = Coin::Penny; let b = match a { Coin::Penny =&gt; 1, Coin::Nickel =&gt; 5, Coin::Dime =&gt; 10, Coin::Quarter =&gt; 25, }; println!(&#34;{}&#34;, b); let c = match a { Coin::Penny =&gt; { println!...</p>
   </section>
   <footer class="entry-footer">May 22, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust枚举" href="https://murphywzhu.github.io/blog/posts/rust-04/"></a>
+  <a class="entry-link" aria-label="post link to Rust枚举和模式匹配" href="https://murphywzhu.github.io/blog/posts/rust-04/"></a>
 </article>
 
 <article class="post-entry"> 
