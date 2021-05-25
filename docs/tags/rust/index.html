@@ -128,6 +128,36 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Rust错误处理</h2>
+  </header>
+  <section class="entry-content">
+    <p>panic!与不可恢复的错误 调用panic!
+fn main() { panic!(&#34;crash and burn&#34;); } Result与可恢复的错误 use std::fs::File; fn main() { let f = File::open(&#34;hello.txt&#34;); let f = match f { Ok(file) =&gt; file, Err(error) =&gt; { panic!(&#34;Problem opening the file: {:?}&#34;, error) }, }; } 匹配不同的错误
+use std::fs::File; use std::io::ErrorKind; fn main() { let f = File::open(&#34;hello.txt&#34;); let f = match f { Ok(file) =&gt; file, Err(error) =&gt; match error.kind() { ErrorKind::NotFound =&gt; match File::create(&#34;hello.txt&#34;) { Ok(fc) =&gt; fc, Err(e) =&gt; panic!...</p>
+  </section>
+  <footer class="entry-footer">May 25, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust错误处理" href="https://murphywzhu.github.io/blog/posts/rust-06/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Rust集合</h2>
+  </header>
+  <section class="entry-content">
+    <p>vector vector在内存中是连续的，只能存储相同类型的值
+新建vector
+let v: Vec&lt;i32&gt; = Vec::new(); 或者使用rust提供的vec!宏来新建一个vector
+let v = vec![1, 2, 3]; 更新vector
+let mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素
+let v = vec![1, 2, 3, 4, 5]; let third: &amp;i32 = &amp;v[2]; println!(&#34;The third element is {}&#34;, third); match v.get(2) { Some(third) =&gt; println!(&#34;The third element is {}&#34;, third), None =&gt; println!(&#34;There is no third element.&#34;), } 下面代码会报错
+let mut v = vec![1, 2, 3, 4, 5]; let first = &amp;v[0]; v....</p>
+  </section>
+  <footer class="entry-footer">May 23, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust集合" href="https://murphywzhu.github.io/blog/posts/rust-05/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Rust枚举和模式匹配</h2>
   </header>
   <section class="entry-content">

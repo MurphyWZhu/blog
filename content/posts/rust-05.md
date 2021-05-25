@@ -2,6 +2,7 @@
 title: "Rust集合"
 date: 2021-05-23T11:48:49+08:00
 draft: false
+tags: ["Rust"]
 ---
 
 ### `vector`

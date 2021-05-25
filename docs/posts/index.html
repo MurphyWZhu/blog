@@ -143,6 +143,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust错误处理</h2>
+  </header>
+  <section class="entry-content">
+    <p>panic!与不可恢复的错误 调用panic!
+fn main() { panic!(&#34;crash and burn&#34;); } Result与可恢复的错误 use std::fs::File; fn main() { let f = File::open(&#34;hello.txt&#34;); let f = match f { Ok(file) =&gt; file, Err(error) =&gt; { panic!(&#34;Problem opening the file: {:?}&#34;, error) }, }; } 匹配不同的错误
+use std::fs::File; use std::io::ErrorKind; fn main() { let f = File::open(&#34;hello.txt&#34;); let f = match f { Ok(file) =&gt; file, Err(error) =&gt; match error.kind() { ErrorKind::NotFound =&gt; match File::create(&#34;hello.txt&#34;) { Ok(fc) =&gt; fc, Err(e) =&gt; panic!...</p>
+  </section>
+  <footer class="entry-footer">May 25, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust错误处理" href="https://murphywzhu.github.io/blog/posts/rust-06/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Rust集合</h2>
   </header>
   <section class="entry-content">
@@ -290,24 +303,6 @@ Code % cargo new hello-world Created binary (application) `hello-world` package 
   </section>
   <footer class="entry-footer">April 21, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust初试" href="https://murphywzhu.github.io/blog/posts/rust/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg" alt="ArchLinux">
-</figure>
-  <header class="entry-header">
-    <h2>Arch Install</h2>
-  </header>
-  <section class="entry-content">
-    <p>安装前配置 设置字体
-setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
-wifi: iwctl 设置ntp
-timedatectl set-ntp true 磁盘按照自己的需要分区
-将根目录挂载到/mnt
-修改镜像站</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Arch Install" href="https://murphywzhu.github.io/blog/posts/arch-install/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
