@@ -143,6 +143,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust泛型、trait与生命周期</h2>
+  </header>
+  <section class="entry-content">
+    <p>泛型数据类型 在函数定义中使用泛型
+下面代码有两个函数，找出最大的数字和字母的
+fn largest_i32(list: &amp;[i32]) -&gt; i32 { let mut largest = list[0]; for &amp;item in list.iter() { if item &gt; largest { largest = item; } } largest } fn largest_char(list: &amp;[char]) -&gt; char { let mut largest = list[0]; for &amp;item in list.iter() { if item &gt; largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest_i32(&amp;number_list); println!...</p>
+  </section>
+  <footer class="entry-footer">May 25, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust泛型、trait与生命周期" href="https://murphywzhu.github.io/blog/posts/rust-07/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Rust错误处理</h2>
   </header>
   <section class="entry-content">
@@ -285,24 +298,6 @@ error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3
   </section>
   <footer class="entry-footer">April 21, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust常见编程概念" href="https://murphywzhu.github.io/blog/posts/rust-01/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg" alt="Rust">
-</figure>
-  <header class="entry-header">
-    <h2>Rust初试</h2>
-  </header>
-  <section class="entry-content">
-    <p>Rust 据官网说介绍rust是一门高性能，高可靠的编程语言，最主要的特点就是安全可靠，据悉Linux内核都在考虑是否用rust代替C
-Rust安装 可以使用官方的rustup来安装rust以及其他工具
-sudo pacman -S rustup 设置rustup的下载源
-export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup 安装rust
-rustup install stable rustup component add rust-src Helloworld
-Code % cargo new hello-world Created binary (application) `hello-world` package Code % cd hello-world hello-world[master*] % ls Cargo.toml src hello-world[master*] % cargo run Compiling hello-world v0.1.0 (/home/murphy/Code/hello-world) Finished dev [unoptimized &#43; debuginfo] target(s) in 1.15s Running `target/debug/hello-world` Hello, world! Rust IDE rust还没有官方的IDE，我使用Clion的rust插件来写</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust初试" href="https://murphywzhu.github.io/blog/posts/rust/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
