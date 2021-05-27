@@ -178,3 +178,39 @@ fn main() {
 }
 ```
 
+还可以只对一种类型提供方法
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn get_x(&self) -> &T {
+        &self.x
+    }
+}
+
+impl Point<String> {
+    fn x_add(&mut self, str: &String) {
+        self.x = format!("{}{}", self.x, str)
+    }
+}
+
+fn main() {
+    let a1 = Point { x: 5, y: 10 };
+    println!("{}", a1.get_x());
+    let mut a2 = Point { x: String::from("Hello"), y: String::from("world") };
+    let str = String::from("world");
+    a2.x_add(&str);
+    println!("{}", a2.get_x());
+}
+```
+
+### `trait`:定义共享的行为
+
+`trait`类似于其他语言的接口功能
+
+定义`trait`
+

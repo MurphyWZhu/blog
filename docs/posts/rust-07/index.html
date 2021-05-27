@@ -69,8 +69,8 @@ fn largest_i32(list: &amp;[i32]) -&gt; i32 { let mut largest = list[0]; for &amp
   "keywords": [
     "Rust"
   ],
-  "articleBody": "泛型数据类型 在函数定义中使用泛型\n下面代码有两个函数，找出最大的数字和字母的\nfn largest_i32(list: \u0026[i32]) - i32 { let mut largest = list[0]; for \u0026item in list.iter() { if item  largest { largest = item; } } largest } fn largest_char(list: \u0026[char]) - char { let mut largest = list[0]; for \u0026item in list.iter() { if item  largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest_i32(\u0026number_list); println!(\"The largest number is {}\", result); let char_list = vec!['y', 'm', 'a', 'q']; let result = largest_char(\u0026char_list); println!(\"The largest char is {}\", result); } 这两个函数实现的功能都是一样的\n所以可以使用泛型来把他们整合到一起\nfn largestT(list: \u0026[T]) - T { let mut largest = list[0]; for \u0026item in list.iter() { if item  largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest(\u0026number_list); println!(\"The largest number is {}\", result); let char_list = vec!['y', 'm', 'a', 'q']; let result = largest(\u0026char_list); println!(\"The largest char is {}\", result); } 结构体中的泛型\nstruct PointT { x: T, y: T, } fn main() { let integer = Point { x: 5, y: 10 }; let float = Point { x: 1.0, y: 4.0 }; } 下面代码是错误的，类型都是T说明xy类型一样\nstruct PointT { x: T, y: T, } fn main() { let wont_work = Point { x: 5, y: 4.0 }; } struct PointT, U { x: T, y: U, } fn main() { let both_integer = Point { x: 5, y: 10 }; let both_float = Point { x: 1.0, y: 4.0 }; let integer_and_float = Point { x: 5, y: 4.0 }; } 枚举定义中的泛型\nenum OptionT { Some(T), None, } enum ResultT, E { Ok(T), Err(E), } 方法定义中的泛型\nstruct PointT { x: T, y: T, } implT PointT { fn x(\u0026self) - \u0026T { \u0026self.x } } fn main() { let p = Point { x: 5, y: 10 }; println!(\"p.x = {}\", p.x()); } struct PointT, U { x: T, y: U, } implT, U PointT, U { fn mixupV, W(self, other: PointV, W) - PointT, W { Point { x: self.x, y: other.y, } } } fn main() { let p1 = Point { x: 5, y: 10.4 }; let p2 = Point { x: \"Hello\", y: 'c'}; let p3 = p1.mixup(p2); println!(\"p3.x = {}, p3.y = {}\", p3.x, p3.y); } ",
-  "wordCount" : "386",
+  "articleBody": "泛型数据类型 在函数定义中使用泛型\n下面代码有两个函数，找出最大的数字和字母的\nfn largest_i32(list: \u0026[i32]) - i32 { let mut largest = list[0]; for \u0026item in list.iter() { if item  largest { largest = item; } } largest } fn largest_char(list: \u0026[char]) - char { let mut largest = list[0]; for \u0026item in list.iter() { if item  largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest_i32(\u0026number_list); println!(\"The largest number is {}\", result); let char_list = vec!['y', 'm', 'a', 'q']; let result = largest_char(\u0026char_list); println!(\"The largest char is {}\", result); } 这两个函数实现的功能都是一样的\n所以可以使用泛型来把他们整合到一起\nfn largestT(list: \u0026[T]) - T { let mut largest = list[0]; for \u0026item in list.iter() { if item  largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest(\u0026number_list); println!(\"The largest number is {}\", result); let char_list = vec!['y', 'm', 'a', 'q']; let result = largest(\u0026char_list); println!(\"The largest char is {}\", result); } 结构体中的泛型\nstruct PointT { x: T, y: T, } fn main() { let integer = Point { x: 5, y: 10 }; let float = Point { x: 1.0, y: 4.0 }; } 下面代码是错误的，类型都是T说明xy类型一样\nstruct PointT { x: T, y: T, } fn main() { let wont_work = Point { x: 5, y: 4.0 }; } struct PointT, U { x: T, y: U, } fn main() { let both_integer = Point { x: 5, y: 10 }; let both_float = Point { x: 1.0, y: 4.0 }; let integer_and_float = Point { x: 5, y: 4.0 }; } 枚举定义中的泛型\nenum OptionT { Some(T), None, } enum ResultT, E { Ok(T), Err(E), } 方法定义中的泛型\nstruct PointT { x: T, y: T, } implT PointT { fn x(\u0026self) - \u0026T { \u0026self.x } } fn main() { let p = Point { x: 5, y: 10 }; println!(\"p.x = {}\", p.x()); } struct PointT, U { x: T, y: U, } implT, U PointT, U { fn mixupV, W(self, other: PointV, W) - PointT, W { Point { x: self.x, y: other.y, } } } fn main() { let p1 = Point { x: 5, y: 10.4 }; let p2 = Point { x: \"Hello\", y: 'c'}; let p3 = p1.mixup(p2); println!(\"p3.x = {}, p3.y = {}\", p3.x, p3.y); } 还可以只对一种类型提供方法\nstruct PointT { x: T, y: T, } implT PointT { fn get_x(\u0026self) - \u0026T { \u0026self.x } } impl PointString { fn x_add(\u0026mut self, str: \u0026String) { self.x = format!(\"{}{}\", self.x, str) } } fn main() { let a1 = Point { x: 5, y: 10 }; println!(\"{}\", a1.get_x()); let mut a2 = Point { x: String::from(\"Hello\"), y: String::from(\"world\") }; let str = String::from(\"world\"); a2.x_add(\u0026str); println!(\"{}\", a2.get_x()); } trait:定义共享的行为 trait类似于其他语言的接口功能\n定义trait\n",
+  "wordCount" : "459",
   "inLanguage": "zh-cn",
   "datePublished": "2021-05-25T13:35:57+08:00",
   "dateModified": "2021-05-25T13:35:57+08:00",
@@ -331,7 +331,36 @@ fn largest_i32(list: &amp;[i32]) -&gt; i32 { let mut largest = list[0]; for &amp
 
     println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;p3.x = {}, p3.y = {}&#34;</span>, p3.x, p3.y);
 }
-</code></pre></div>
+</code></pre></div><p>还可以只对一种类型提供方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> {
+    x: <span style="color:#a6e22e">T</span>,
+    y: <span style="color:#a6e22e">T</span>,
+}
+
+<span style="color:#66d9ef">impl</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> Point<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">get_x</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">T</span> {
+        <span style="color:#f92672">&amp;</span>self.x
+    }
+}
+
+<span style="color:#66d9ef">impl</span> Point<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">x_add</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self, <span style="color:#66d9ef">str</span>: <span style="color:#66d9ef">&amp;</span>String) {
+        self.x <span style="color:#f92672">=</span> format<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}{}&#34;</span>, self.x, <span style="color:#66d9ef">str</span>)
+    }
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> a1 <span style="color:#f92672">=</span> Point { x: <span style="color:#ae81ff">5</span>, y: <span style="color:#ae81ff">10</span> };
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a1.get_x());
+    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> a2 <span style="color:#f92672">=</span> Point { x: String::from(<span style="color:#e6db74">&#34;Hello&#34;</span>), y: String::from(<span style="color:#e6db74">&#34;world&#34;</span>) };
+    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;world&#34;</span>);
+    a2.x_add(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">str</span>);
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, a2.get_x());
+}
+</code></pre></div><h3 id="trait定义共享的行为"><code>trait</code>:定义共享的行为<a hidden class="anchor" aria-hidden="true" href="#trait定义共享的行为">#</a></h3>
+<p><code>trait</code>类似于其他语言的接口功能</p>
+<p>定义<code>trait</code></p>
+
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
