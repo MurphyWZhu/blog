@@ -143,6 +143,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust测试</h2>
+  </header>
+  <section class="entry-content">
+    <p>编写测试 先创建一个新的库项目
+cargo new adder --lib 会自动生成src/lib.rs
+#[cfg(test)] mod tests { #[test] fn it_works() { assert_eq!(2 &#43; 2, 4); } } </p>
+  </section>
+  <footer class="entry-footer">May 27, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust测试" href="https://murphywzhu.github.io/blog/posts/rust-08/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Rust泛型、trait与生命周期</h2>
   </header>
   <section class="entry-content">
@@ -284,20 +297,6 @@ let s1 = String::from(&#34;hello&#34;); let s2 = s1....</p>
   </section>
   <footer class="entry-footer">April 21, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust所有权" href="https://murphywzhu.github.io/blog/posts/rust-02/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust常见编程概念</h2>
-  </header>
-  <section class="entry-content">
-    <p>不变变量 以下程序理所当然的输出5
-fn main() { let a = 5; println!(&#34;{}&#34;, a); } 而当你尝试改变a的值时
-fn main() { let a = 5; a = 6; println!(&#34;{}&#34;, a); } 则会出现错误
-error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议...</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust常见编程概念" href="https://murphywzhu.github.io/blog/posts/rust-01/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
