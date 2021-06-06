@@ -143,6 +143,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust并发</h2>
+  </header>
+  <section class="entry-content">
+    <p>线程 使用spawn创建新线程
+use std::thread; use std::time::Duration; fn main() { thread::spawn(|| { for i in 1..10 { println!(&#34;hi number {} from the spawned thread!&#34;, i); thread::sleep(Duration::from_millis(1)); } }); for i in 1..5 { println!(&#34;hi number {} from the main thread!&#34;, i); thread::sleep(Duration::from_millis(1)); } } 程序会输出
+hi number 1 from the main thread! hi number 1 from the spawned thread! hi number 2 from the main thread! hi number 2 from the spawned thread!...</p>
+  </section>
+  <footer class="entry-footer">June 6, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust并发" href="https://murphywzhu.github.io/blog/posts/rust-11/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Rust智能指针</h2>
+  </header>
+  <section class="entry-content">
+    <p>使用Box&lt;T&gt;指向堆上的数据 使用box在堆上储存一个i32
+b是一个指向被分配在堆上的值5的Box
+fn main() { let b = Box::new(5); println!(&#34;b = {}&#34;, b); } </p>
+  </section>
+  <footer class="entry-footer">June 5, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust智能指针" href="https://murphywzhu.github.io/blog/posts/rust-10/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Rust测试</h2>
   </header>
   <section class="entry-content">
@@ -260,43 +286,6 @@ fn build_user(email: String, username: String) -&gt; User { User { email, userna
   </section>
   <footer class="entry-footer">May 8, 2021</footer>
   <a class="entry-link" aria-label="post link to Typora设置等宽字体" href="https://murphywzhu.github.io/blog/posts/typora-00/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>使用Hugo在github上搭建博客</h2>
-  </header>
-  <section class="entry-content">
-    <p>Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
- Hugo是一个静态网页框架，可以快速生成网页，并且拥有许多的主题
-安装Hugo 在archlinux中
-sudo pacman -S hugo 使用源码安装
-需要有git和go(&gt;=1.11)
-mkdir $HOME/src cd $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install --tags extended % hugo version hugo v0.82.0&#43;extended linux/amd64 BuildDate=unknown 创建网站 先在github上新建一个项目
-然后新建一个hugo网站项目
-hugo new site blog -f yml 初始化git，并设置默认分支名为main
-git init git branch -m main 设置主题，这里设置PaperMod主题...</p>
-  </section>
-  <footer class="entry-footer">April 25, 2021</footer>
-  <a class="entry-link" aria-label="post link to 使用Hugo在github上搭建博客" href="https://murphywzhu.github.io/blog/posts/hugo-00/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Rust所有权</h2>
-  </header>
-  <section class="entry-content">
-    <p>所有权 所有权是rust的核心之一
-它有如下规则
-1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明  let s = &#34;hello&#34;; // 从此处起，s 是有效的  // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
-let s = String::from(&#34;hello&#34;); 对于栈上的数据rust直接复制了
-let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
-如下代码会错误，因为s1无效了，所以发生了无效引用
-let s1 = String::from(&#34;hello&#34;); let s2 = s1; println!(&#34;{}, world!&#34;, s1); 如果要复制String的数据可以使用clone
-let s1 = String::from(&#34;hello&#34;); let s2 = s1....</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust所有权" href="https://murphywzhu.github.io/blog/posts/rust-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

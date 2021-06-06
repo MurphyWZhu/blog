@@ -128,6 +128,32 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Rust并发</h2>
+  </header>
+  <section class="entry-content">
+    <p>线程 使用spawn创建新线程
+use std::thread; use std::time::Duration; fn main() { thread::spawn(|| { for i in 1..10 { println!(&#34;hi number {} from the spawned thread!&#34;, i); thread::sleep(Duration::from_millis(1)); } }); for i in 1..5 { println!(&#34;hi number {} from the main thread!&#34;, i); thread::sleep(Duration::from_millis(1)); } } 程序会输出
+hi number 1 from the main thread! hi number 1 from the spawned thread! hi number 2 from the main thread! hi number 2 from the spawned thread!...</p>
+  </section>
+  <footer class="entry-footer">June 6, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust并发" href="https://murphywzhu.github.io/blog/posts/rust-11/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Rust智能指针</h2>
+  </header>
+  <section class="entry-content">
+    <p>使用Box&lt;T&gt;指向堆上的数据 使用box在堆上储存一个i32
+b是一个指向被分配在堆上的值5的Box
+fn main() { let b = Box::new(5); println!(&#34;b = {}&#34;, b); } </p>
+  </section>
+  <footer class="entry-footer">June 5, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust智能指针" href="https://murphywzhu.github.io/blog/posts/rust-10/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Rust测试</h2>
   </header>
   <section class="entry-content">
@@ -245,24 +271,11 @@ error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3
   <footer class="entry-footer">April 21, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust常见编程概念" href="https://murphywzhu.github.io/blog/posts/rust-01/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg" alt="Rust">
-</figure>
-  <header class="entry-header">
-    <h2>Rust初试</h2>
-  </header>
-  <section class="entry-content">
-    <p>Rust 据官网说介绍rust是一门高性能，高可靠的编程语言，最主要的特点就是安全可靠，据悉Linux内核都在考虑是否用rust代替C
-Rust安装 可以使用官方的rustup来安装rust以及其他工具
-sudo pacman -S rustup 设置rustup的下载源
-export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup 安装rust
-rustup install stable rustup component add rust-src Helloworld
-Code % cargo new hello-world Created binary (application) `hello-world` package Code % cd hello-world hello-world[master*] % ls Cargo.toml src hello-world[master*] % cargo run Compiling hello-world v0.1.0 (/home/murphy/Code/hello-world) Finished dev [unoptimized &#43; debuginfo] target(s) in 1.15s Running `target/debug/hello-world` Hello, world! Rust IDE rust还没有官方的IDE，我使用Clion的rust插件来写</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust初试" href="https://murphywzhu.github.io/blog/posts/rust/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://murphywzhu.github.io/blog/tags/rust/page/2/"> »</a>
+  </nav>
+</footer>
     </main>
     <footer class="footer">
     <span>&copy; 2021 <a href="https://murphywzhu.github.io/blog/">锦酱的博客</a></span>

@@ -6,7 +6,29 @@
     <description>Recent content in Rust on 锦酱的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 27 May 2021 17:47:08 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Jun 2021 17:28:35 +0800</lastBuildDate><atom:link href="https://murphywzhu.github.io/blog/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust并发</title>
+      <link>https://murphywzhu.github.io/blog/posts/rust-11/</link>
+      <pubDate>Sun, 06 Jun 2021 17:28:35 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/rust-11/</guid>
+      <description>线程 使用spawn创建新线程
+use std::thread; use std::time::Duration; fn main() { thread::spawn(|| { for i in 1..10 { println!(&amp;#34;hi number {} from the spawned thread!&amp;#34;, i); thread::sleep(Duration::from_millis(1)); } }); for i in 1..5 { println!(&amp;#34;hi number {} from the main thread!&amp;#34;, i); thread::sleep(Duration::from_millis(1)); } } 程序会输出
+hi number 1 from the main thread! hi number 1 from the spawned thread! hi number 2 from the main thread! hi number 2 from the spawned thread!</description>
+    </item>
+    
+    <item>
+      <title>Rust智能指针</title>
+      <link>https://murphywzhu.github.io/blog/posts/rust-10/</link>
+      <pubDate>Sat, 05 Jun 2021 18:51:39 +0800</pubDate>
+      
+      <guid>https://murphywzhu.github.io/blog/posts/rust-10/</guid>
+      <description>使用Box&amp;lt;T&amp;gt;指向堆上的数据 使用box在堆上储存一个i32
+b是一个指向被分配在堆上的值5的Box
+fn main() { let b = Box::new(5); println!(&amp;#34;b = {}&amp;#34;, b); } </description>
+    </item>
+    
     <item>
       <title>Rust测试</title>
       <link>https://murphywzhu.github.io/blog/posts/rust-08/</link>
