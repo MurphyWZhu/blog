@@ -7,12 +7,13 @@
 <meta name="robots" content="index, follow">
 <title>Arch Install | 锦酱的博客</title>
 <meta name="keywords" content="" />
-<meta name="description" content="安装前配置 设置字体
-setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
-wifi: iwctl 设置ntp
-timedatectl set-ntp true 磁盘按照自己的需要分区
-将根目录挂载到/mnt
-修改镜像站">
+<meta name="description" content="安装前准备 制作启动盘 下载最新版本的archlinux安装镜像文件
+Linux： dd bs=4M if=镜像路径 of=/dev/USB设备标识符 conv=fsync oflag=direct status=progress Windows： 使用Rufus制作
+MacOS： diskutil unmountDisk /dev/USB设备标识符 #MacOS也许会自动挂载USB设备，先卸载 dd if=镜像路径 of=/dev/USB设备标识符 bs=1m 引导系统 将制作好的USB启动盘插在要安装archlinux的电脑上
+开机的时候按某个按键(不同品牌及机器不一样)，进入选择引导介质的界面，选择USB设备
+即可引导进入archlinux live
+安装前配置 setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz #将字体设置大一点 timedatectl set-ntp true #设置网络时间 磁盘设置 分区 archlinux一般需要分一下几个区
+   分区名称 挂载点 分区类型 建议大小     EFI引导分区 /mnt/boot EFI system partition 512M   根分区 /mnt Linux 磁盘剩下的空间   数据分区[可选] /data Linux    家分区[可选] /home Linux     分区要具体看用途，及你的电脑的磁盘配置">
 <meta name="author" content="">
 <link rel="canonical" href="https://murphywzhu.github.io/blog/posts/arch-install/" />
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.min.04512c372388e08b5118f5b117b2d3efef4ddae52017e16085c8d8d4e361c43d.css" integrity="sha256-BFEsNyOI4ItRGPWxF7LT7&#43;9N2uUgF&#43;FghcjY1ONhxD0=" rel="preload stylesheet" as="style">
@@ -27,12 +28,13 @@ timedatectl set-ntp true 磁盘按照自己的需要分区
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.83.1" />
 <meta property="og:title" content="Arch Install" />
-<meta property="og:description" content="安装前配置 设置字体
-setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
-wifi: iwctl 设置ntp
-timedatectl set-ntp true 磁盘按照自己的需要分区
-将根目录挂载到/mnt
-修改镜像站" />
+<meta property="og:description" content="安装前准备 制作启动盘 下载最新版本的archlinux安装镜像文件
+Linux： dd bs=4M if=镜像路径 of=/dev/USB设备标识符 conv=fsync oflag=direct status=progress Windows： 使用Rufus制作
+MacOS： diskutil unmountDisk /dev/USB设备标识符 #MacOS也许会自动挂载USB设备，先卸载 dd if=镜像路径 of=/dev/USB设备标识符 bs=1m 引导系统 将制作好的USB启动盘插在要安装archlinux的电脑上
+开机的时候按某个按键(不同品牌及机器不一样)，进入选择引导介质的界面，选择USB设备
+即可引导进入archlinux live
+安装前配置 setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz #将字体设置大一点 timedatectl set-ntp true #设置网络时间 磁盘设置 分区 archlinux一般需要分一下几个区
+   分区名称 挂载点 分区类型 建议大小     EFI引导分区 /mnt/boot EFI system partition 512M   根分区 /mnt Linux 磁盘剩下的空间   数据分区[可选] /data Linux    家分区[可选] /home Linux     分区要具体看用途，及你的电脑的磁盘配置" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://murphywzhu.github.io/blog/posts/arch-install/" />
 <meta property="og:image" content="https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg" /><meta property="article:section" content="posts" />
@@ -42,12 +44,13 @@ timedatectl set-ntp true 磁盘按照自己的需要分区
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg" />
 <meta name="twitter:title" content="Arch Install"/>
-<meta name="twitter:description" content="安装前配置 设置字体
-setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络
-wifi: iwctl 设置ntp
-timedatectl set-ntp true 磁盘按照自己的需要分区
-将根目录挂载到/mnt
-修改镜像站"/>
+<meta name="twitter:description" content="安装前准备 制作启动盘 下载最新版本的archlinux安装镜像文件
+Linux： dd bs=4M if=镜像路径 of=/dev/USB设备标识符 conv=fsync oflag=direct status=progress Windows： 使用Rufus制作
+MacOS： diskutil unmountDisk /dev/USB设备标识符 #MacOS也许会自动挂载USB设备，先卸载 dd if=镜像路径 of=/dev/USB设备标识符 bs=1m 引导系统 将制作好的USB启动盘插在要安装archlinux的电脑上
+开机的时候按某个按键(不同品牌及机器不一样)，进入选择引导介质的界面，选择USB设备
+即可引导进入archlinux live
+安装前配置 setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz #将字体设置大一点 timedatectl set-ntp true #设置网络时间 磁盘设置 分区 archlinux一般需要分一下几个区
+   分区名称 挂载点 分区类型 建议大小     EFI引导分区 /mnt/boot EFI system partition 512M   根分区 /mnt Linux 磁盘剩下的空间   数据分区[可选] /data Linux    家分区[可选] /home Linux     分区要具体看用途，及你的电脑的磁盘配置"/>
 
 
 <script type="application/ld+json">
@@ -76,12 +79,12 @@ timedatectl set-ntp true 磁盘按照自己的需要分区
   "@type": "BlogPosting",
   "headline": "Arch Install",
   "name": "Arch Install",
-  "description": "安装前配置 设置字体\nsetfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络\nwifi: iwctl 设置ntp\ntimedatectl set-ntp true 磁盘按照自己的需要分区\n将根目录挂载到/mnt\n修改镜像站",
+  "description": "安装前准备 制作启动盘 下载最新版本的archlinux安装镜像文件\nLinux： dd bs=4M if=镜像路径 of=/dev/USB设备标识符 conv=fsync oflag=direct status=progress Windows： 使用Rufus制作\nMacOS： diskutil unmountDisk /dev/USB设备标识符 #MacOS也许会自动挂载USB设备，先卸载 dd if=镜像路径 of=/dev/USB设备标识符 bs=1m 引导系统 将制作好的USB启动盘插在要安装archlinux的电脑上\n开机的时候按某个按键(不同品牌及机器不一样)，进入选择引导介质的界面，选择USB设备\n即可引导进入archlinux live\n安装前配置 setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz #将字体设置大一点 timedatectl set-ntp true #设置网络时间 磁盘设置 分区 archlinux一般需要分一下几个区\n   分区名称 挂载点 分区类型 建议大小     EFI引导分区 /mnt/boot EFI system partition 512M   根分区 /mnt Linux 磁盘剩下的空间   数据分区[可选] /data Linux    家分区[可选] /home Linux     分区要具体看用途，及你的电脑的磁盘配置",
   "keywords": [
     
   ],
-  "articleBody": "安装前配置 设置字体\nsetfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz 连接网络\nwifi: iwctl 设置ntp\ntimedatectl set-ntp true 磁盘按照自己的需要分区\n将根目录挂载到/mnt\n修改镜像站\n",
-  "wordCount" : "14",
+  "articleBody": "安装前准备 制作启动盘 下载最新版本的archlinux安装镜像文件\nLinux： dd bs=4M if=镜像路径 of=/dev/USB设备标识符 conv=fsync oflag=direct status=progress Windows： 使用Rufus制作\nMacOS： diskutil unmountDisk /dev/USB设备标识符 #MacOS也许会自动挂载USB设备，先卸载 dd if=镜像路径 of=/dev/USB设备标识符 bs=1m 引导系统 将制作好的USB启动盘插在要安装archlinux的电脑上\n开机的时候按某个按键(不同品牌及机器不一样)，进入选择引导介质的界面，选择USB设备\n即可引导进入archlinux live\n安装前配置 setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz #将字体设置大一点 timedatectl set-ntp true #设置网络时间 磁盘设置 分区 archlinux一般需要分一下几个区\n   分区名称 挂载点 分区类型 建议大小     EFI引导分区 /mnt/boot EFI system partition 512M   根分区 /mnt Linux 磁盘剩下的空间   数据分区[可选] /data Linux    家分区[可选] /home Linux     分区要具体看用途，及你的电脑的磁盘配置\n如果只有一块硬盘，可以只分EFI分区及根分区\n如果有一块固态和一块机械，可以把固态分为EFI分区及根分区，机械分为数据分区或家分区\n我的电脑是一块NVME固态和一块SATA固态，我将NVME分为EFI分区及根分区，将SATA分为家分区\nfdisk /dev/nvme0n1 fdisk /dev/sda 格式化分区 EFI分区：\nmkfs.fat -F32 /dev/nvme0n1p1 根分区：\nmkfs.ext4 /dev/nvme0n1p2 数据分区或家分区：\nmkfs.ext4 /dev/sda1 挂载分区 mount /dev/nvme0n1p2 /mnt mkdir /mnt/boot mkdir /mnt/home mount /dev/nvme0n1p1 /mnt/boot mount /dev/sda1 /mnt/home 修改镜像站 修改文件/etc/pacman.d/mirrorlist\nServer = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch 安装基本系统 pacstrap /mnt base base-devel linux-zen linux-firmware vim networkmanager iwd iptables-nft linux-zen是另一个linux内核，对原本的内核参数进行了修改，iwd是intel无线网卡驱动，iptables-nft是使用 nft 接口的iptables\n将磁盘挂载信息写入新系统\ngenfstab -U /mnt  /mnt/etc/fstab 配置系统 切换到新系统\narch-chroot /mnt 设置时区为中国并载入\nln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc 设置中文支持，修改/etc/locale.gen，之后使配置生效\n/etc/locale.gen..... en_US.UTF-8 UTF-8 zh_CN.UTF-8 UTF-8 zh_TW.UTF-8 UTF-8 zh_HK.UTF-8 UTF-8 ..... locale-gen 设置语言为英文utf8，先设置成英文，中文在字符界面会乱码\n/etc/locale.conf LANG=en_US.UTF-8 配置主机名\n/etc/hostname karch 配置hosts文件\n/etc/hosts # Static table lookup for hostnames. # See hosts(5) for details. 127.0.0.1\tlocalhost ::1\tlocalhost 127.0.1.1\tkarch.localdomain\tkarch 设置root密码\npasswd 安装intel cpu微码（或amd-ucode）\npacman -S intel-ucode 配置grub启动\npacman -S grub efibootmgr grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB grub-mkconfig -o /boot/grub/grub.cfg 配置dkms和显卡驱动(Nvidia独显+Intel集显)\nsudo pacman -S linux-zen-headers dkms sudo pacman -S nvidia-dkms nvidia-prime sudo pacman -S vulkan-intel intel-media-driver libva-intel-driver 安装kde桌面环境，以及pipewire音频管理，和一些常用的软件\nsudo pacman -S plasma konsole dolphin{,-plugins} pipewire{,-alsa,-pulse,-jack} ark gwenview kdialog spectacle kate 安装中文字体和常用字体并设置默认语言为中文\nsudo pacman -S ttf-sarasa-gothic ttf-fira-{code,mono} /etc/locale.confLANG=en_US.UTF-8 安装libreoffice办公套件\nsudo pacman -S libreoffice-fresh{,-zh-cn} okular latte-dock kfind krename kcalc elisa vlc 配置archlinuxcn源\nsudo pacman -S haveged sudo systemctl start haveged sudo systemctl enable haveged sudo vim /etc/pacman.conf sudo rm -rf /etc/pacman.d/gnupg sudo pacman-key --init sudo pacman-key --populate archlinux sudo pacman -S archlinuxcn-keyring 安装chrome浏览器\npacman -S google-chrome 安装输入法\npacman -S fcitx5-im fcitx5-chinese-addons fcitx5-nord fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl ~/.pam_environmentGTK_IM_MODULE DEFAULT=fcitx QT_IM_MODULE DEFAULT=fcitx XMODIFIERS DEFAULT=\\@im=fcitx SDL_IM_MODULE DEFAULT=fcitx ",
+  "wordCount" : "287",
   "inLanguage": "zh-cn",
   "image":"https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg","datePublished": "2021-04-21T12:49:02+08:00",
   "dateModified": "2021-04-21T12:49:02+08:00",
@@ -205,18 +208,154 @@ timedatectl set-ntp true 磁盘按照自己的需要分区
 <figure class="entry-cover"><img loading="lazy" src="https://mublog.oss-cn-beijing.aliyuncs.com/824c2c178b82434c2abbe9e485de1daa.jpeg" alt="ArchLinux">
         
 </figure>
-  <div class="post-content"><h3 id="安装前配置">安装前配置<a hidden class="anchor" aria-hidden="true" href="#安装前配置">#</a></h3>
-<p>设置字体</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz
-</code></pre></div><p>连接网络</p>
-<pre><code>wifi:
-iwctl
-</code></pre><p>设置ntp</p>
-<pre><code>timedatectl set-ntp true
-</code></pre><p>磁盘按照自己的需要分区</p>
-<p>将根目录挂载到<code>/mnt</code></p>
-<p>修改镜像站</p>
-
+  <div class="post-content"><h3 id="安装前准备">安装前准备<a hidden class="anchor" aria-hidden="true" href="#安装前准备">#</a></h3>
+<h4 id="制作启动盘">制作启动盘<a hidden class="anchor" aria-hidden="true" href="#制作启动盘">#</a></h4>
+<p>下载最新版本的<a href="https://mirrors.bfsu.edu.cn/archlinux/iso/latest/"><code>archlinux</code></a>安装镜像文件</p>
+<h5 id="linux"><code>Linux</code>：<a hidden class="anchor" aria-hidden="true" href="#linux">#</a></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dd bs<span style="color:#f92672">=</span>4M <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>镜像路径 of<span style="color:#f92672">=</span>/dev/USB设备标识符 conv<span style="color:#f92672">=</span>fsync oflag<span style="color:#f92672">=</span>direct status<span style="color:#f92672">=</span>progress
+</code></pre></div><h5 id="windows"><code>Windows</code>：<a hidden class="anchor" aria-hidden="true" href="#windows">#</a></h5>
+<p>使用<a href="https://rufus.ie/zh/"><code>Rufus</code></a>制作</p>
+<h5 id="macos"><code>MacOS</code>：<a hidden class="anchor" aria-hidden="true" href="#macos">#</a></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">diskutil unmountDisk /dev/USB设备标识符 <span style="color:#75715e">#MacOS也许会自动挂载USB设备，先卸载</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>镜像路径 of<span style="color:#f92672">=</span>/dev/USB设备标识符 bs<span style="color:#f92672">=</span>1m
+</code></pre></div><h4 id="引导系统">引导系统<a hidden class="anchor" aria-hidden="true" href="#引导系统">#</a></h4>
+<p>将制作好的<code>USB</code>启动盘插在要安装<code>archlinux</code>的电脑上</p>
+<p>开机的时候按某个按键(不同品牌及机器不一样)，进入选择引导介质的界面，选择<code>USB</code>设备</p>
+<p>即可引导进入<code>archlinux live</code></p>
+<h3 id="安装前配置">安装前配置<a hidden class="anchor" aria-hidden="true" href="#安装前配置">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setfont /usr/share/kbd/consolefonts/iso01-12x22.psfu.gz <span style="color:#75715e">#将字体设置大一点</span>
+timedatectl set-ntp true <span style="color:#75715e">#设置网络时间</span>
+</code></pre></div><h4 id="磁盘设置">磁盘设置<a hidden class="anchor" aria-hidden="true" href="#磁盘设置">#</a></h4>
+<h5 id="分区">分区<a hidden class="anchor" aria-hidden="true" href="#分区">#</a></h5>
+<p><code>archlinux</code>一般需要分一下几个区</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分区名称</th>
+<th style="text-align:center">挂载点</th>
+<th style="text-align:center">分区类型</th>
+<th style="text-align:center">建议大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>EFI</code>引导分区</td>
+<td style="text-align:center"><code>/mnt/boot</code></td>
+<td style="text-align:center"><code>EFI system partition</code></td>
+<td style="text-align:center"><code>512M</code></td>
+</tr>
+<tr>
+<td style="text-align:center">根分区</td>
+<td style="text-align:center"><code>/mnt</code></td>
+<td style="text-align:center"><code>Linux</code></td>
+<td style="text-align:center">磁盘剩下的空间</td>
+</tr>
+<tr>
+<td style="text-align:center">数据分区[可选]</td>
+<td style="text-align:center"><code>/data</code></td>
+<td style="text-align:center"><code>Linux</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">家分区[可选]</td>
+<td style="text-align:center"><code>/home</code></td>
+<td style="text-align:center"><code>Linux</code></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>分区要具体看用途，及你的电脑的磁盘配置</p>
+<p>如果只有一块硬盘，可以只分<code>EFI</code>分区及根分区</p>
+<p>如果有一块固态和一块机械，可以把固态分为<code>EFI</code>分区及根分区，机械分为数据分区或家分区</p>
+<p>我的电脑是一块<code>NVME</code>固态和一块<code>SATA</code>固态，我将<code>NVME</code>分为<code>EFI</code>分区及根分区，将<code>SATA</code>分为家分区</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdisk /dev/nvme0n1
+fdisk /dev/sda
+</code></pre></div><h5 id="格式化分区">格式化分区<a hidden class="anchor" aria-hidden="true" href="#格式化分区">#</a></h5>
+<p><code>EFI</code>分区：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkfs.fat -F32 /dev/nvme0n1p1
+</code></pre></div><p>根分区：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkfs.ext4 /dev/nvme0n1p2
+</code></pre></div><p>数据分区或家分区：</p>
+<pre><code>mkfs.ext4 /dev/sda1
+</code></pre><h5 id="挂载分区">挂载分区<a hidden class="anchor" aria-hidden="true" href="#挂载分区">#</a></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mount /dev/nvme0n1p2 /mnt
+mkdir /mnt/boot
+mkdir /mnt/home
+mount /dev/nvme0n1p1 /mnt/boot
+mount /dev/sda1 /mnt/home
+</code></pre></div><h4 id="修改镜像站">修改镜像站<a hidden class="anchor" aria-hidden="true" href="#修改镜像站">#</a></h4>
+<p>修改文件<code>/etc/pacman.d/mirrorlist</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apacheconf" data-lang="apacheconf">Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+</code></pre></div><h3 id="安装基本系统">安装基本系统<a hidden class="anchor" aria-hidden="true" href="#安装基本系统">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacstrap /mnt base base-devel linux-zen linux-firmware vim networkmanager iwd iptables-nft
+</code></pre></div><p><code>linux-zen</code>是另一个<code>linux</code>内核，对原本的内核参数进行了修改，<code>iwd</code>是<code>intel</code>无线网卡驱动，<code>iptables-nft</code>是使用 <code>nft</code> 接口的<code>iptables</code></p>
+<p>将磁盘挂载信息写入新系统</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></div><h3 id="配置系统">配置系统<a hidden class="anchor" aria-hidden="true" href="#配置系统">#</a></h3>
+<p>切换到新系统</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">arch-chroot /mnt
+</code></pre></div><p>设置时区为中国并载入</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc
+</code></pre></div><p>设置中文支持，修改<code>/etc/locale.gen</code>，之后使配置生效</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apacheconf" data-lang="apacheconf"><span style="color:#960050;background-color:#1e0010">/etc/locale</span>.<span style="color:#960050;background-color:#1e0010">gen</span>.....
+<span style="color:#960050;background-color:#1e0010">en_US</span>.<span style="color:#960050;background-color:#1e0010">UTF-8</span> <span style="color:#960050;background-color:#1e0010">UTF-8</span>
+<span style="color:#960050;background-color:#1e0010">zh_CN</span>.<span style="color:#960050;background-color:#1e0010">UTF-8</span> <span style="color:#960050;background-color:#1e0010">UTF-8</span>
+<span style="color:#960050;background-color:#1e0010">zh_TW</span>.<span style="color:#960050;background-color:#1e0010">UTF-8</span> <span style="color:#960050;background-color:#1e0010">UTF-8</span>
+<span style="color:#960050;background-color:#1e0010">zh_HK</span>.<span style="color:#960050;background-color:#1e0010">UTF-8</span> <span style="color:#960050;background-color:#1e0010">UTF-8</span>
+.....
+<span style="color:#960050;background-color:#1e0010">locale-</span>gen
+</code></pre></div><p>设置语言为英文<code>utf8</code>，先设置成英文，中文在字符界面会乱码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apacheconf" data-lang="apacheconf"><span style="color:#960050;background-color:#1e0010">/etc/locale</span>.conf
+LANG=en_US.UTF-8
+</code></pre></div><p>配置主机名</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apacheconf" data-lang="apacheconf"><span style="color:#960050;background-color:#1e0010">/etc/</span>hostname
+karch
+</code></pre></div><p>配置<code>hosts</code>文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apacheconf" data-lang="apacheconf"><span style="color:#960050;background-color:#1e0010">/etc/</span>hosts
+# Static table lookup for hostnames.
+<span style="color:#75715e"># See hosts(5) for details.</span>
+<span style="color:#960050;background-color:#1e0010">127</span>.<span style="color:#960050;background-color:#1e0010">0</span>.<span style="color:#960050;background-color:#1e0010">0</span>.<span style="color:#960050;background-color:#1e0010">1</span>	localhost
+::1		localhost
+<span style="color:#960050;background-color:#1e0010">127</span>.<span style="color:#960050;background-color:#1e0010">0</span>.<span style="color:#960050;background-color:#1e0010">1</span>.<span style="color:#960050;background-color:#1e0010">1</span>	<span style="color:#960050;background-color:#1e0010">karch</span>.localdomain	karch
+</code></pre></div><p>设置<code>root</code>密码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">passwd
+</code></pre></div><p>安装<code>intel cpu</code>微码（或<code>amd-ucode</code>）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S intel-ucode
+</code></pre></div><p>配置<code>grub</code>启动</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S grub efibootmgr
+grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot --bootloader-id<span style="color:#f92672">=</span>GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div><p>配置<code>dkms</code>和显卡驱动(<code>Nvidia</code>独显+<code>Intel</code>集显)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S linux-zen-headers dkms
+sudo pacman -S nvidia-dkms nvidia-prime
+sudo pacman -S vulkan-intel intel-media-driver libva-intel-driver 
+</code></pre></div><p>安装<code>kde</code>桌面环境，以及<code>pipewire</code>音频管理，和一些常用的软件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S plasma konsole dolphin<span style="color:#f92672">{</span>,-plugins<span style="color:#f92672">}</span> pipewire<span style="color:#f92672">{</span>,-alsa,-pulse,-jack<span style="color:#f92672">}</span> ark gwenview kdialog spectacle kate 
+</code></pre></div><p>安装中文字体和常用字体并设置默认语言为中文</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S ttf-sarasa-gothic ttf-fira-<span style="color:#f92672">{</span>code,mono<span style="color:#f92672">}</span>
+/etc/locale.confLANG<span style="color:#f92672">=</span>en_US.UTF-8
+</code></pre></div><p>安装<code>libreoffice</code>办公套件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S libreoffice-fresh<span style="color:#f92672">{</span>,-zh-cn<span style="color:#f92672">}</span> okular latte-dock kfind krename kcalc elisa vlc
+</code></pre></div><p>配置<code>archlinuxcn</code>源</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S haveged
+sudo systemctl start haveged
+sudo systemctl enable haveged
+sudo vim /etc/pacman.conf
+sudo rm -rf /etc/pacman.d/gnupg
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman -S archlinuxcn-keyring
+</code></pre></div><p>安装<code>chrome</code>浏览器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S google-chrome
+</code></pre></div><p>安装输入法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-nord fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
+~/.pam_environmentGTK_IM_MODULE DEFAULT<span style="color:#f92672">=</span>fcitx
+QT_IM_MODULE  DEFAULT<span style="color:#f92672">=</span>fcitx
+XMODIFIERS    DEFAULT<span style="color:#f92672">=</span><span style="color:#ae81ff">\@</span>im<span style="color:#f92672">=</span>fcitx
+SDL_IM_MODULE DEFAULT<span style="color:#f92672">=</span>fcitx
+</code></pre></div>
 </div>
   <footer class="post-footer">
   </footer>
