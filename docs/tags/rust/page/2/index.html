@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://murphywzhu.github.io/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.84.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/tags/rust/index.xml">
 <meta property="og:title" content="Rust" />
 <meta property="og:description" content="" />
@@ -125,6 +125,20 @@
 <header class="page-header">
   <h1>Rust</h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Rust常见编程概念</h2>
+  </header>
+  <section class="entry-content">
+    <p>不变变量 以下程序理所当然的输出5
+fn main() { let a = 5; println!(&#34;{}&#34;, a); } 而当你尝试改变a的值时
+fn main() { let a = 5; a = 6; println!(&#34;{}&#34;, a); } 则会出现错误
+error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议...</p>
+  </section>
+  <footer class="entry-footer">April 21, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust常见编程概念" href="https://murphywzhu.github.io/blog/posts/rust-01/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://mublog.oss-cn-beijing.aliyuncs.com/ec16e275a07709bf0043bda9608de846.jpeg" alt="Rust">

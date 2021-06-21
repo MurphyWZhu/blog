@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://murphywzhu.github.io/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.84.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/tags/rust/index.xml">
 <meta property="og:title" content="Rust" />
 <meta property="og:description" content="" />
@@ -157,6 +157,18 @@ fn main() { let x = 5; let y = &amp;x; assert_eq!...</p>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Rust迭代器与闭包</h2>
+  </header>
+  <section class="entry-content">
+    <p>闭包：可以捕获环境的匿名函数 Rust 的 闭包（closures）是可以保存进变量或作为参数传递给其他函数的匿名函数。可以在一个地方创建闭包，然后在不同的上下文中执行闭包运算。不同于函数，闭包允许捕获调用者作用域中的值。我们将展示闭包的这些功能如何复用代码和自定义行为。
+使用闭包创建行为的抽象 use std::thread; use std::time::Duration; fn simulated_expensive_calculation(intensity: u32) -&gt; u32 { println!(&#34;calculating slowly...&#34;); thread::sleep(Duration::from_secs(2)); intensity } </p>
+  </section>
+  <footer class="entry-footer">June 5, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust迭代器与闭包" href="https://murphywzhu.github.io/blog/posts/rust-09/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Rust测试</h2>
   </header>
   <section class="entry-content">
@@ -259,20 +271,6 @@ let s1 = String::from(&#34;hello&#34;); let s2 = s1....</p>
   </section>
   <footer class="entry-footer">April 21, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust所有权" href="https://murphywzhu.github.io/blog/posts/rust-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Rust常见编程概念</h2>
-  </header>
-  <section class="entry-content">
-    <p>不变变量 以下程序理所当然的输出5
-fn main() { let a = 5; println!(&#34;{}&#34;, a); } 而当你尝试改变a的值时
-fn main() { let a = 5; a = 6; println!(&#34;{}&#34;, a); } 则会出现错误
-error[E0384]: cannot assign twice to immutable variable `a` --&gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议...</p>
-  </section>
-  <footer class="entry-footer">April 21, 2021</footer>
-  <a class="entry-link" aria-label="post link to Rust常见编程概念" href="https://murphywzhu.github.io/blog/posts/rust-01/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

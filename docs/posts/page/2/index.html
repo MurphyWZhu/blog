@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://murphywzhu.github.io/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.84.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/posts/index.xml">
 <meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
@@ -140,6 +140,21 @@
 <header class="page-header">
   <h1>Posts</h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Typora设置等宽字体</h2>
+  </header>
+  <section class="entry-content">
+    <p>我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受
+在网上搜索之后，找到了解决办法
+新建这个文件~/.config/Typora/themes/base.user.css
+写入以下内容，字体可以替换为喜欢的字体
+~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了</p>
+  </section>
+  <footer class="entry-footer">May 8, 2021</footer>
+  <a class="entry-link" aria-label="post link to Typora设置等宽字体" href="https://murphywzhu.github.io/blog/posts/typora-00/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">

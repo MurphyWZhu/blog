@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://murphywzhu.github.io/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.84.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://murphywzhu.github.io/blog/posts/index.xml">
 <meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
@@ -172,6 +172,18 @@ fn main() { let x = 5; let y = &amp;x; assert_eq!...</p>
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Rust迭代器与闭包</h2>
+  </header>
+  <section class="entry-content">
+    <p>闭包：可以捕获环境的匿名函数 Rust 的 闭包（closures）是可以保存进变量或作为参数传递给其他函数的匿名函数。可以在一个地方创建闭包，然后在不同的上下文中执行闭包运算。不同于函数，闭包允许捕获调用者作用域中的值。我们将展示闭包的这些功能如何复用代码和自定义行为。
+使用闭包创建行为的抽象 use std::thread; use std::time::Duration; fn simulated_expensive_calculation(intensity: u32) -&gt; u32 { println!(&#34;calculating slowly...&#34;); thread::sleep(Duration::from_secs(2)); intensity } </p>
+  </section>
+  <footer class="entry-footer">June 5, 2021</footer>
+  <a class="entry-link" aria-label="post link to Rust迭代器与闭包" href="https://murphywzhu.github.io/blog/posts/rust-09/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Rust测试</h2>
   </header>
   <section class="entry-content">
@@ -274,21 +286,6 @@ fn build_user(email: String, username: String) -&gt; User { User { email, userna
   </section>
   <footer class="entry-footer">May 15, 2021</footer>
   <a class="entry-link" aria-label="post link to Rust结构体" href="https://murphywzhu.github.io/blog/posts/rust-03/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Typora设置等宽字体</h2>
-  </header>
-  <section class="entry-content">
-    <p>我在ArchLinux上用Typora的时候发现代码块字体不是等宽字体，就非常的难受
-在网上搜索之后，找到了解决办法
-新建这个文件~/.config/Typora/themes/base.user.css
-写入以下内容，字体可以替换为喜欢的字体
-~/.config/Typora/themes/base.user.css .CodeMirror-wrap .CodeMirror-code pre { font-family: Fira Code; } .md-fences,code,tt { font-family: Fira Code; } 保存重启就好了</p>
-  </section>
-  <footer class="entry-footer">May 8, 2021</footer>
-  <a class="entry-link" aria-label="post link to Typora设置等宽字体" href="https://murphywzhu.github.io/blog/posts/typora-00/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
