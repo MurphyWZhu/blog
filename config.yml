@@ -9,10 +9,10 @@ languages:
         weight: 1
         menu:
             main:
-                - name: 搜索
+                - name: Search
                   url: search/
                   weight: 10
-                - name: 标签
+                - name: Tags
                   url: tags/
                   weight: 10
 
